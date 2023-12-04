@@ -1,0 +1,16 @@
+ÿØÿÛ«symbol LM339
+  «type: »
+  «library file: |.SUBCKT LM339 1 2 3 4 5\nF1 9 3 V1 1\nIEE 3 7 DC 100.0E-6\nVI1 21 1 DC .75\nVI2 22 2 DC .75\nQ1 9 21 7 QIN\nQ2 8 22 7 QIN\nQ3 9 8 4 QMO\nQ4 8 8 4 QMI\n.MODEL QIN PNP(IS=800.0E-18 BF=2.000E3)\n.MODEL QMI NPN(IS=800.0E-18 BF=1002)\n.MODEL QMO NPN(IS=800.0E-18 BF=1000 CJC=1E-15 TR=807.4E-9)\nE1 10 4 9 4 1\nV1 10 11 DC 0\nQ5 5 11 4 QOC\n.MODEL QOC NPN(IS=800.0E-18 BF=20.29E3 CJC=1E-15 TF=942.6E-12 TR=543.8E-9)\nDP 4 3 DX\nRP 3 4 46.3E3\n.MODEL DX D(IS=800.0E-18)\n.ENDS»
+  «shorted pins: false»
+  «line (100,300) (100,250) 0 0 0x1000000 -1 -1»
+  «line (100,-300) (100,-250) 0 0 0x1000000 -1 -1»
+  «triangle (-400,500) (600,0) (-400,-500) 0 0 0x1000000 0x2000000 -1 -1»
+  «text (-340,310) 1 0 0 0x0 -1 -1 "-"»
+  «text (-300,-290) 1 0 0 0x0 -1 -1 "+"»
+  «text (50,550) 1 0 0 0x0 -1 -1 "LM339"»
+  «pin (-400,300) (0,0) 1 0 0 0x0 -1 "" "" "1"»
+  «pin (-400,-300) (0,0) 1 0 0 0x0 -1 "" "" "2"»
+  «pin (100,300) (0,0) 1 0 0 0x0 -1 "" "" "3"»
+  «pin (100,-300) (0,0) 1 0 0 0x0 -1 "" "" "4"»
+  «pin (600,0) (0,0) 1 0 0 0x0 -1 "" "" "5"»
+»

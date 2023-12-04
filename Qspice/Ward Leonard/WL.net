@@ -1,0 +1,35 @@
+* Ward Leonard Control System Example
+
+* Constants
+.param Vin = 100V          ; Input voltage
+.param Rm = 2 Ohm         ; Motor resistance
+.param Lm = 0.1 H         ; Motor inductance
+.param Km = 0.01          ; Motor back EMF constant
+.param J = 0.1            ; Moment of inertia of the system
+.param B = 0.01           ; Damping coefficient
+.param Rg = 10 Ohm        ; Generator resistance
+.param Lg = 0.05 H        ; Generator inductance
+.param Kg = 0.02          ; Generator voltage constant
+
+* Circuit
+V1 N1 0 DC {Vin}
+Rm N1 N2 {Rm}
+Lm N2 N3 {Lm}
+Km N3 0 N2 {Km}
+J1 N3 N4 {J}
+B1 N4 0 {B}
+Rg N4 N5 {Rg}
+Lg N5 N6 {Lg}
+Kg N6 0 N5 {Kg}
+Rcomp N3 Ncomp 1 Ohm      ; Compensator resistance
+
+* Ground node
+Vgnd GND 0 0V             ; Ground node
+
+* Simulation commands
+.control
+  tran 0.01s 5s           ; Transient analysis from 0 to 5 seconds
+  plot v(N2) v(N5)        ; Plot motor and generator voltages
+.endc
+
+.end
