@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=51
-TXCnt=6
+NLCnt=98
+TXCnt=25
 
 [shapedef]
 Name=Capacitor
@@ -41,6 +41,38 @@ Line=18,-4,18,4
 Line=24,0,24,0
 
 [shapedef]
+Name=Inv
+Root="Inv.root",0,0,0
+
+[shapedef]
+Name=Inv.root
+Line=8,-16,8,16
+Line=8,-16,40,0
+Line=8,16,40,0
+Line=0,0,8,0
+Ellipse=40,-2,44,2
+FColor=None
+Line=44,0,47,0
+Line=46,0,48,0
+
+[shapedef]
+Name=Opamp
+Root="Opamp.root",0,0,0
+
+[shapedef]
+Name=Opamp.root
+Line=0,48,6,48
+Line=0,0,5,0
+Line=6,-4,6,52
+Line=6,-4,48,24
+Line=6,52,48,24
+Line=48,24,72,24
+Line=10,12,14,12
+Line=12,10,12,14
+Line=10,36,14,36
+Line=4,0,6,0
+
+[shapedef]
 Name=Plus.root
 Line=-2,0,2,0
 Line=0,-2,0,2
@@ -63,8 +95,8 @@ Current=32,16,16,16
 Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
-Mask=5121
-Used=96
+Mask=5377
+Used=102
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -76,7 +108,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=350
+Used=355
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -107,8 +139,33 @@ PinCnt=2
 Pin="Plus",6,0,-3,-5
 Pin="Minus",0,0,-14,-5
 
+[compdef]
+Name=Comp
+Definition=Macro
+Shape=Opamp
+Mask=4096
+Used=4
+memo=Simple comparator macro
+Label Offset=34,36,-10,31
+PinCnt=3
+Pin="Inp",a,0,0,-10,-3
+Pin="Inm",a,0,6,-13,-1
+Pin="Out",a,9,3,-10,-1
+
+[compdef]
+Name=INV
+Definition=Subckt
+Shape=Inv
+Mask=4224
+Used=3
+memo=Inverter - Christophe Basso model for SMPS testing
+Label Offset=13,-44,16,16
+PinCnt=2
+Pin="1",a,0,0,-1,-2
+Pin="2",a,6,0,-2,-2
+
 [Circuit]
-Window Placement=2,3, -1,-1, -8,-31, 182,182,1232,612
+Window Placement=2,3, -1,-1, -8,-31, 182,0,1232,428
 Default Object=Color=#000080
 Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
 Default Object Apply Border To Text=No
@@ -121,6 +178,7 @@ PathDelayFormat=3
 WarningFormat=3
 GridTextFormulaFormat=3
 Window Placement in Transient Analysis=2,3, -1,-1, -8,-31, 0,0,1345,430
+Window Placement in Transient Probe=0,1, -1,-1, -8,-31, 761,0,1522,608
 SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
@@ -135,9 +193,19 @@ Show Cross=True
 Show Attribute Text=True
 Show Grid Text=True
 
+[Object]
+Object=Rectangle
+CBorder=#000080
+Px=1047,780,1079,812
+
+[Object]
+Object=Rectangle
+CBorder=#000080
+Px=103,477,955,865
+
 [Comp]
 Name=Voltage Source
-Px=224,184
+Px=208,176
 Rot=4
 
 [Attr]
@@ -186,7 +254,7 @@ Style=256
 
 [Comp]
 Name=Voltage Source
-Px=224,248
+Px=208,240
 Rot=4
 
 [Attr]
@@ -210,7 +278,7 @@ Style=256
 
 [Comp]
 Name=Voltage Source
-Px=224,312
+Px=208,304
 Rot=4
 
 [Attr]
@@ -234,36 +302,36 @@ Style=256
 
 [Comp]
 Name=Ground
-Px=136,304
+Px=120,296
 Rot=7
 
 [Wire]
-Pxs=208,184,208,248
+Pxs=192,176,192,240
 
 [Wire]
-Pxs=208,184,224,184
+Pxs=192,176,208,176
 
 [Wire]
-Pxs=208,312,224,312
+Pxs=192,304,208,304
 
 [Wire]
-Pxs=136,264,136,304
+Pxs=120,256,120,296
 
 [Wire]
-Pxs=208,248,224,248
+Pxs=192,240,208,240
 
 [Wire]
-Pxs=208,248,208,264
+Pxs=192,240,192,256
 
 [Wire]
-Pxs=136,264,208,264
+Pxs=120,256,192,256
 
 [Wire]
-Pxs=208,264,208,312
+Pxs=192,256,192,304
 
 [Comp]
 Name=B6S
-Px=464,112
+Px=448,104
 Rot=7
 
 [Attr]
@@ -281,7 +349,7 @@ V
 
 [Comp]
 Name=B6S
-Px=464,336
+Px=448,328
 Rot=7
 
 [Attr]
@@ -299,7 +367,7 @@ V
 
 [Comp]
 Name=B6S
-Px=536,336
+Px=520,328
 Rot=7
 
 [Attr]
@@ -317,7 +385,7 @@ V
 
 [Comp]
 Name=B6S
-Px=536,112
+Px=520,104
 Rot=7
 
 [Attr]
@@ -335,7 +403,7 @@ V
 
 [Comp]
 Name=B6S
-Px=600,112
+Px=584,104
 Rot=7
 
 [Attr]
@@ -353,7 +421,7 @@ V
 
 [Comp]
 Name=B6S
-Px=600,336
+Px=584,328
 Rot=7
 
 [Attr]
@@ -370,47 +438,47 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=464,96,464,112
+Pxs=448,88,448,104
 
 [Wire]
-Pxs=464,96,536,96
+Pxs=448,88,520,88
 
 [Wire]
-Pxs=600,96,600,112
+Pxs=584,88,584,104
 
 [Wire]
-Pxs=536,96,536,112
+Pxs=520,88,520,104
 
 [Wire]
-Pxs=536,96,600,96
+Pxs=520,88,584,88
 
 [Wire]
-Pxs=464,160,464,184
+Pxs=448,152,448,176
 
 [Wire]
-Pxs=536,160,536,248
+Pxs=520,152,520,240
 
 [Wire]
-Pxs=600,160,600,312
+Pxs=584,152,584,304
 
 [Wire]
-Pxs=464,384,464,408
+Pxs=448,376,448,400
 
 [Wire]
-Pxs=464,408,536,408
+Pxs=448,400,520,400
 
 [Wire]
-Pxs=600,384,600,408
+Pxs=584,376,584,400
 
 [Wire]
-Pxs=536,384,536,408
+Pxs=520,376,520,400
 
 [Wire]
-Pxs=536,408,600,408
+Pxs=520,400,584,400
 
 [Comp]
 Name=Capacitor
-Px=648,136
+Px=632,128
 Rot=1
 
 [Attr]
@@ -429,7 +497,7 @@ V
 
 [Comp]
 Name=Capacitor
-Px=648,288
+Px=632,280
 Rot=1
 
 [Attr]
@@ -447,62 +515,469 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=648,336,648,408
+Pxs=632,328,632,400
 
 [Wire]
-Pxs=600,408,648,408
+Pxs=584,400,632,400
 
 [Wire]
-Pxs=600,96,648,96
+Pxs=584,88,632,88
 
 [Wire]
-Pxs=648,96,648,136
+Pxs=632,88,632,128
 
 [Wire]
-Pxs=648,184,648,288
+Pxs=632,176,632,232
 
 [Wire]
-Pxs=464,184,464,336
+Pxs=448,176,448,328
 
 [Wire]
-Pxs=536,248,536,336
+Pxs=520,240,520,328
 
 [Wire]
-Pxs=600,312,600,336
+Pxs=584,304,584,328
 
 [Wire]
-Pxs=648,96,680,96
+Pxs=632,88,664,88
 
 [Wire]
-Pxs=648,408,680,408
+Pxs=632,400,664,400
 
 [Wire]
-Pxs=680,408,792,408
+Pxs=664,400,776,400
 
 [Wire]
-Pxs=360,184,464,184
+Pxs=344,176,448,176
 
 [Wire]
-Pxs=360,248,536,248
+Pxs=344,240,520,240
 
 [Wire]
-Pxs=360,312,600,312
+Pxs=344,304,584,304
 
 [Wire]
-Pxs=272,184,360,184
+Pxs=256,176,344,176
 
 [Wire]
-Pxs=272,248,360,248
+Pxs=256,240,344,240
 
 [Wire]
-Pxs=272,312,360,312
+Pxs=256,304,344,304
 
 [Wire]
-Pxs=680,96,784,96
+Pxs=664,88,768,88
+
+[Comp]
+Name=Voltage Source
+Px=216,728
+Rot=5
+
+[Attr]
+ON=15,-27,PART
+V=MotorFreqA
+Style=8192
+
+[Attr]
+ON=14,-9,VALUE
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 0
+Style=4096
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 0
+Style=256
+
+[Comp]
+Name=Ground
+Px=216,728
+Rot=7
+
+[Wire]
+Pxs=216,664,216,680
+
+[Comp]
+Name=Voltage Source
+Px=376,592
+Rot=5
+
+[Attr]
+ON=15,-27,PART
+V=Carrier
+Style=8192
+
+[Attr]
+ON=15,-41,VALUE
+V=DC 0 AC 1 0 Pulse 0 1 0 {1/f_carrier/2} {1/f_carrier/2} 0 {1/f_carrier}
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0.5 AC 1 0 Sin 0 {Amod/2} {f_motor} 0 0 240
+Style=256
+
+[Attr]
+ON=0,0,SMOOTHING
+V=N
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseS
+V=N
+Style=256
+
+[Attr]
+ON=0,0,FRACTION
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseF
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 1 0 {1/f_carrier/2} {1/f_carrier/2} 0 {1/f_carrier}
+Style=256
+
+[Comp]
+Name=Ground
+Px=376,592
+Rot=7
+
+[Comp]
+Name=Voltage Source
+Px=328,728
+Rot=5
+
+[Attr]
+ON=15,-27,PART
+V=MotorFreqB
+Style=8192
+
+[Attr]
+ON=14,-9,VALUE
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 120
+Style=4096
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 120
+Style=256
+
+[Comp]
+Name=Ground
+Px=328,728
+Rot=7
+
+[Wire]
+Pxs=328,664,328,680
+
+[Comp]
+Name=Voltage Source
+Px=448,728
+Rot=5
+
+[Attr]
+ON=15,-27,PART
+V=MotorFreqC
+Style=8192
+
+[Attr]
+ON=14,-9,VALUE
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 240
+Style=4096
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 240
+Style=256
+
+[Comp]
+Name=Ground
+Px=448,728
+Rot=7
+
+[Wire]
+Pxs=448,664,448,680
+
+[Wire]
+Pxs=376,528,376,544
+
+[Comp]
+Name=Comp
+Px=640,520
+
+[Attr]
+ON=34,36,PART
+V=X1
+Style=8192
+
+[Attr]
+ON=34,50,FILE
+V=Comp
+
+[Attr]
+ON=34,78,Param:VOH
+V=5
+
+[Attr]
+ON=34,92,Param:VOL
+V=0
+
+[Attr]
+ON=34,106,Param:GAIN
+V=1000
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=592,520,640,520
+
+[Wire]
+Pxs=584,568,640,568
+
+[Wire]
+Pxs=704,544,712,544
+
+[Wire]
+Pxs=728,584,744,584
+
+[Wire]
+Pxs=728,544,728,584
+
+[Wire]
+Pxs=728,544,856,544
+
+[Wire]
+Pxs=792,584,856,584
+
+[Comp]
+Name=Voltage Source
+Px=288,592
+Rot=5
+
+[Attr]
+ON=15,-27,PART
+V=Vlogic
+Style=8192
+
+[Attr]
+ON=15,-41,VALUE
+V=DC 5 AC 1 0
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0.5 {Amod/2} {f_motor} 0 0 240
+Style=256
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 5 AC 1 0 
+Style=256
+
+[Comp]
+Name=Ground
+Px=288,592
+Rot=7
+
+[Wire]
+Pxs=288,528,288,544
+
+[Wire]
+Pxs=712,544,728,544
+
+[Comp]
+Name=INV
+Px=744,584
+
+[Attr]
+ON=17,-31,PART
+V=X2
+Style=8192
+
+[Attr]
+ON=13,-30,NAME
+V=INV
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Comp
+Px=640,640
+
+[Attr]
+ON=34,36,PART
+V=X3
+Style=8192
+
+[Attr]
+ON=34,50,FILE
+V=Comp
+
+[Attr]
+ON=34,78,Param:VOH
+V=5
+
+[Attr]
+ON=34,92,Param:VOL
+V=0
+
+[Attr]
+ON=34,106,Param:GAIN
+V=1000
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=592,640,640,640
+
+[Wire]
+Pxs=584,688,640,688
+
+[Wire]
+Pxs=728,704,744,704
+
+[Wire]
+Pxs=728,664,728,704
+
+[Wire]
+Pxs=792,704,856,704
+
+[Wire]
+Pxs=712,664,728,664
+
+[Comp]
+Name=INV
+Px=744,704
+
+[Attr]
+ON=14,-29,PART
+V=X4
+Style=8192
+
+[Attr]
+ON=13,-30,NAME
+V=INV
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Comp
+Px=640,744
+
+[Attr]
+ON=34,36,PART
+V=X5
+Style=8192
+
+[Attr]
+ON=34,50,FILE
+V=Comp
+
+[Attr]
+ON=34,78,Param:VOH
+V=5
+
+[Attr]
+ON=34,92,Param:VOL
+V=0
+
+[Attr]
+ON=34,106,Param:GAIN
+V=1000
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=592,744,640,744
+
+[Wire]
+Pxs=584,792,640,792
+
+[Wire]
+Pxs=704,768,712,768
+
+[Wire]
+Pxs=728,808,744,808
+
+[Wire]
+Pxs=728,768,728,808
+
+[Wire]
+Pxs=792,808,848,808
+
+[Wire]
+Pxs=712,768,728,768
+
+[Comp]
+Name=INV
+Px=744,808
+
+[Attr]
+ON=15,-28,PART
+V=X6
+Style=8192
+
+[Attr]
+ON=13,-30,NAME
+V=INV
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=728,664,856,664
+
+[Wire]
+Pxs=728,768,848,768
+
+[Wire]
+Pxs=632,232,632,280
+
+[Grid Text]
+Text="Sine PWM Control Signals"
+Px=112,472
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
 
 [Grid Text]
 Text=".ic v(Bus+)=0"
-Px=672,80
+Px=656,72
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -510,7 +985,7 @@ CBorder=None
 
 [Grid Text]
 Text="Bus-"
-Px=680,408
+Px=664,400
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -518,7 +993,7 @@ CBorder=None
 
 [Grid Text]
 Text="Bus+"
-Px=680,96
+Px=664,88
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -526,7 +1001,7 @@ CBorder=None
 
 [Grid Text]
 Text="R"
-Px=360,184
+Px=344,176
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -534,7 +1009,7 @@ CBorder=None
 
 [Grid Text]
 Text="S"
-Px=360,248
+Px=344,240
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -542,7 +1017,151 @@ CBorder=None
 
 [Grid Text]
 Text="T"
-Px=360,312
+Px=344,304
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="tri"
+Px=376,528
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MA"
+Px=216,664
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MB"
+Px=328,664
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MC"
+Px=448,664
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="tri"
+Px=584,568
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MA"
+Px=592,520
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GateA"
+Px=856,544
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Gate/A"
+Px=856,584
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="logic"
+Px=288,528
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="tri1"
+Px=584,688
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MB"
+Px=592,640
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="tri2"
+Px=584,792
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="MC"
+Px=592,744
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GateB"
+Px=856,664
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Gate/B"
+Px=856,704
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GateC"
+Px=848,768
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Gate/C"
+Px=848,808
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="V0"
+Px=632,232
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -556,7 +1175,7 @@ CurrentSection 3=0
 Splitter.xs=0
 Splitter.ys=0
 TextQuad=4099
-Scale=1.3333333333333333
+Scale=0.66666666666666663
 GridType=GraphPaper
 GridUser=10
 ShapeGroups="Main","Euro","Polarity","Main1","Main11","Electrolytic","GroundArrow","DeMorgan"
@@ -745,8 +1364,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-Scale 3=1.3333333333333333
-Px=1000,457
+SB 3=465,332
+Scale 3=0.66666666666666663
+Px=826,290
 WinBackGround Color=#FFFFCE
 Select Color=#FF0000
 Anchor Color=#000000
@@ -836,6 +1456,9 @@ Search Color=#FFFF00
 [Text Area]
 Section=0
 Page=1
+Text=.param f_motor=47 
+Text=.param f_carrier=5K 
+Text=.param Amod=0.8
 
 [Text Area]
 Section=0
@@ -856,6 +1479,29 @@ Text=* .Model BJT1 NPN (RE=12 LOT/1/GAUSS=30% DEV/2/UNIFORM=2%)
 Text=*
 Text=* A .cir file is typically found in the data directory
 Text=*
+Text=*** From file C:\Users\User\Programs\mc12cd\library\UTILITY.LBR
+Text=*** 60HZ Sinusoidal Source
+Text=.MODEL 60HZ SIN (A=169.7 F=60)
+Text=*** From file C:\Users\User\Programs\mc12cd\library\UTILITY.LBR
+Text=*** 0 Phase Leg
+Text=.MODEL 3PHASEA SIN (A=169.7 F=60)
+Text=*** From file C:\Users\User\Programs\mc12cd\library\UTILITY.LBR
+Text=*** 10MHz Sinusoidal Source
+Text=.MODEL GENERAL SIN (F={f_motor})
+Text=*** From file C:\Users\User\Programs\mc12cd\library\DIGIO.LIB
+Text=.MODEL D0_GATE UGATE ()
+Text=*** From file C:\Users\User\Programs\mc12cd\library\ANALOG.LIB
+Text=.MODEL D_00 UGATE (TPHLMX=15NS TPHLTY=7NS TPLHMX=22NS TPLHTY=11NS)
+Text=*** From file C:\Users\User\Programs\mc12cd\library\ON_SEMI.LIB
+Text=.MODEL D_ABC UGATE (TPHLMN=0.15NS TPHLMX=0.5NS TPHLTY=0.3NS TPLHMN=0.15NS
+Text=+ TPLHMX=0.5NS TPLHTY=0.3NS)
+Text=.SUBCKT INV 1 2
+Text=E1 4 0 VALUE = { IF ( V(1)>2.5V, 100m, 5 ) }
+Text=R1 4 3 20
+Text=C1 3 0 100n
+Text=E1 2 0 VALUE = { IF ( V(3)>2.5V, 5, 100m ) }
+Text=.ENDS INV
+Text=
 
 [InfoPage]
 InfoPage=True
@@ -880,6 +1526,7 @@ WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
 Select Box Color=#000080
+Window Placement in Probe=0,1, -1,-1, 0,0, 0,0,761,608
 Title
 AutoTitle=Yes
 Grid Color=#808080
@@ -916,7 +1563,7 @@ Tracker Cursor=True
 Tracker Cursor BranchInfo=False
 Horizontal Cursor=False
 Same Y Scales=Yes
-Enable X Scaling=False
+Enable X Scaling=True
 Enable Y Scaling=True
 Keep X Scales The Same=True
 Number of Grids X=5
@@ -1097,6 +1744,8 @@ ALIGNBOTTOM=No
 [APage]
 Analysis=Transient
 Name="MAIN"
+Height_0=38.432835820895541
+Height_1=29.104477611940297
 
 [Monte Carlo Options]
 Analysis=Transient
@@ -1109,9 +1758,9 @@ Seed=0
 
 [Limits]
 Analysis=Transient
-TMax=2m
+TMax=100m
 TStart=0
-TStep=10n
+TStep=1un
 NPts=51
 Temp=27
 RetraceRuns=1
@@ -1126,12 +1775,12 @@ Analysis=Transient
 Plt=1
 AliasID=1
 XExp=T
-YExp=v(Bus+)  -  v(Bus-)
-XRng=0.002
-YRng=800,300
+YExp=v(Tri)
+XRng=0.1
+YRng=1.25
 Options=LINEARX,LINEARY
-Range Grid X=0.0004
-Range Grid Y=100
+Range Grid X=0.02
+Range Grid Y=0.25
 Enable=Enable
 Line Color=#0000FF
 Text Color=#0000FF
@@ -1149,15 +1798,15 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
-Plt=2
+Plt=1
 AliasID=2
 XExp=T
-YExp=v(R)-v(S)
-XRng=0.002
-YRng=1600,-400
+YExp=v(MA)
+XRng=0.1
+YRng=1.25
 Options=LINEARX,LINEARY
-Range Grid X=0.0004
-Range Grid Y=400
+Range Grid X=0.02
+Range Grid Y=0.25
 Enable=Enable
 Line Color=#FF0000
 Text Color=#FF0000
@@ -1178,12 +1827,12 @@ Analysis=Transient
 Plt=2
 AliasID=4
 XExp=T
-YExp=V(R)- v(T)
-XRng=0.002
-YRng=1600,-400
+YExp=V(gatea)
+XRng=0.1
+YRng=8,-2
 Options=LINEARX,LINEARY
-Range Grid X=0.0004
-Range Grid Y=400
+Range Grid X=0.02
+Range Grid Y=2
 Enable=Enable
 Line Color=#008000
 Text Color=#008000
@@ -1201,15 +1850,15 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
-Plt=2
+Plt=3
 AliasID=3
 XExp=T
-YExp=V(S)- v(T)
-XRng=0.002
-YRng=1600,-400
+YExp=V(gate/a)
+XRng=0.1
+YRng=7.5
 Options=LINEARX,LINEARY
-Range Grid X=0.0004
-Range Grid Y=400
+Range Grid X=0.02
+Range Grid Y=1.5
 Enable=Enable
 Line Color=#FF00FF
 Text Color=#FF00FF
@@ -1335,3 +1984,22 @@ Source Stepping=0,0
 Diagonal Gmin Stepping=0,0
 Junction Gmin Stepping=0,0
 Pseudo Transient=0,0
+
+[Measurements]
+Analysis=Transient
+ShowBar=False
+MRUDockID=59419
+Floating=False
+LocalOffset=True
+Rect=-2,29,1538,215
+Horz=1540,-1
+Vert=42,39
+Float=307,225
+Format=3
+FunctionWidth=150
+TextDelim=32
+GenerateExcel=False
+GenerateText=False
+NumberOfBranchesToDisplay=10
+FileName
+Expr=Frequency(v(Tri),1,1)
