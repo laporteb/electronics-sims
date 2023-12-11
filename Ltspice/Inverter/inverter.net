@@ -1,4 +1,4 @@
-* C:\Users\User\Documents\Projects\Electronics Simulations\Ltspice\Inverter\inverter.asc
+* C:\Users\Mechanic\Documents\electronics-sims\Ltspice\Inverter\inverter.asc
 V1 R 0 SINE(0 377 60 0 0 0)
 V2 S 0 SINE(0 377 60 0 0 120)
 V3 T 0 SINE(0 377 60 0 0 -120)
@@ -10,19 +10,52 @@ D5 T VBus+ VS-E5PH7506
 D6 Vbus- T VS-E5PH7506
 C1 VBus+ V0 500µ
 C2 V0 Vbus- 500µ
+V4 tri 0 PULSE(0 1 0 { 1/ (f_carrier*2) } { 1/ (f_carrier*2) } 0 {1/f_carrier}
+V5 MotorU 0 SINE(0.5 {Amod/2} {f_motor} 0 0 0)
+V6 MotorV 0 SINE(0.5 {Amod/2} {f_motor} 0 0 120)
+V7 MotorW 0 SINE(0.5 {Amod/2} {f_motor} 0 0 -120)
+B1 GateS1 0 V=if(V(MotorU)>=V(TRI), 0, 1)
+B2 GateS2 0 V=if(V(MotorU)<V(TRI), 0, 1)
+B3 GateS3 0 V=if(V(MotorV)>=V(TRI), 0, 1)
+B4 GateS4 0 V=if(V(MotorV)<V(TRI), 0, 1)
+B5 GateS5 0 V=if(V(MotorW)>=V(TRI), 0, 1)
+B6 GateS6 0 V=if(V(MotorW)<V(TRI), 0, 1)
+S1 U VBus+ GateS1 0 SW
+S2 Vbus- U GateS2 0 SW
+S3 V VBus+ GateS3 0 SW
+S4 Vbus- V GateS4 0 SW
+S5 W VBus+ GateS5 0 SW
+S6 Vbus- W GateS6 0 SW
+R1 N001 U {motor_R}
+R2 N004 V {motor_R}
+R3 N006 W {motor_R}
+L1 N001 N002 {motor_L}
+L2 N004 N005 {motor_L}
+L3 N006 N007 {motor_L}
+V8 N002 N003 SINE(0 {motor_V} {f_motor} 0 0 0)
+V9 N005 N003 SINE(0 {motor_V} {f_motor} 0 0 120)
+V10 N007 N003 SINE(0 {motor_V} {f_motor} 0 0 -120)
 .model D D
-.lib C:\Users\User\Documents\LTspiceXVII\lib\cmp\standard.dio
+.lib C:\Users\Mechanic\AppData\Local\LTspice\lib\cmp\standard.dio
 .param f_motor=47
 .param f_carrier=10K
 .param Amod=0.9
-.param motor_L=20m
+.param motor_L=200m
 .param motor_R=500m
 .param motor_V=397
-.tran 100m
-.plot v(VBus+) - v(VBus-)
 .ic v(C1) = 200
 .ic v(C2) = 200
 .meas LINE rms (v(R) - v(S) )
-.meas DCLINK v(VBus+) - vVBus-)
+.meas DCLINK avg v(VBus+) - v(VBus-)
+* Sine PWM Control Signals
+.model SW SW(Ron=10m Roff=10Meg Vt=0.2)
+* Motor
+.plot(v(U,V))
+.plot(v(U,W)
+.plot(v(V,W))
+.meas UVMax max(v(U) -v(V))
+.meas UWMax max(v(U) -v(W))
+.meas VWMax max(v(V) -v(W))
+.tran 0 600m 400m
 .backanno
 .end
