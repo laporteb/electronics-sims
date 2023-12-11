@@ -2,3 +2,9 @@
 *.TNO
 *.inx
 *.bak_cir
+
+#ltspice files
+*.plt
+*.raw
+*.log
+*.op.raw
