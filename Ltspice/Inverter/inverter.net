@@ -22,5 +22,7 @@ C2 V0 Vbus- 500µ
 .plot v(VBus+) - v(VBus-)
 .ic v(C1) = 200
 .ic v(C2) = 200
+.meas LINE rms (v(R) - v(S) )
+.meas DCLINK v(VBus+) - vVBus-)
 .backanno
 .end
