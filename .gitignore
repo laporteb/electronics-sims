@@ -8,3 +8,7 @@
 *.raw
 *.log
 *.op.raw
+
+#qspice files
+*.op.qraw
+*.qraw
