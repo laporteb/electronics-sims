@@ -12,3 +12,4 @@
 #qspice files
 *.op.qraw
 *.qraw
+*.pfg
