@@ -1,0 +1,1784 @@
+[Main]
+FileType=CIR
+Version=12.00
+Program=Micro-Cap
+Component Version=10.00
+Shape Version=11.00
+Screen=1536,864
+MCAPVersion=12.2.0.5
+Key ID=Demo
+NLCnt=62
+TXCnt=15
+
+[shapedef]
+Name=Capacitor
+Line=0,0,22,0
+Line=22,-8,22,8
+Line=26,-8,26,8
+Line=26,0,48,0
+Current=32,12,16,12
+
+[shapedef]
+Name=Ground
+Line=0,0,12,0
+Line=12,-8,12,8
+Line=18,-4,18,4
+Line=24,0,24,0
+
+[shapedef]
+Name=Inductor
+Line=42,0,48,0
+Line=0,0,5,0
+Arc=5,-7,17,7 , 11,-7,5,0
+Arc=13,-7,25,7 , 19,-7,13,0
+Arc=29,-7,41,7 , 35,-7,29,0
+Arc=21,-7,33,7 , 27,-7,21,0
+Arc=6,-7,18,7 , 18,0,12,-7
+Arc=14,-7,26,7 , 26,0,20,-7
+Arc=22,-7,34,7 , 34,0,28,-7
+Arc=30,-7,42,7 , 42,0,36,-7
+Line=11,-7,12,-7
+Line=19,-7,20,-7
+Line=27,-7,28,-7
+Line=35,-7,36,-7
+Arc=13,-4,17,2 , 13,-1,15,2
+Arc=29,-4,33,2 , 29,-1,31,2
+Arc=21,-4,25,2 , 21,-1,23,2
+Arc=14,-4,18,2 , 16,2,18,-1
+Arc=30,-4,34,2 , 32,2,34,-1
+Arc=22,-4,26,2 , 24,2,26,-1
+Line=15,2,16,2
+Line=23,2,24,2
+Line=31,2,32,2
+Line=5,5,9,5
+Line=41,5,41,9
+Line=39,7,43,7
+Current=32,8,16,8
+
+[shapedef]
+Name=Plus.root
+Line=-2,0,2,0
+Line=0,-2,0,2
+
+[shapedef]
+Name=Resistor
+PolyOpen=12
+PolyLine=0,0
+PolyLine=0,0
+PolyLine=12,0
+PolyLine=14,-4
+PolyLine=18,4
+PolyLine=22,-4
+PolyLine=26,4
+PolyLine=30,-4
+PolyLine=34,4
+PolyLine=36,0
+PolyLine=48,0
+PolyLine=48,0
+Current=32,8,16,8
+
+[shapedef]
+Name=SPICE_V
+Root="Vsource.root",0,0,0
+
+[shapedef]
+Name=Vsource.root
+Line=0,0,12,0
+Line=36,0,48,0
+Ellipse=12,-12,36,12
+FColor=None
+Line=7,5,7,9
+Root="Plus.root",41,7,0
+Current=32,16,16,16
+
+[compdef]
+Name=Voltage Source
+Definition=VSpice
+Shape=SPICE_V
+Mask=4865
+Used=93
+memo=Voltage Source
+Label Offset=19,13,15,13
+PinCnt=2
+Pin="Plus",6,0,-5,-6
+Pin="Minus",0,0,-20,-6
+
+[compdef]
+Name=Inductor
+Definition=Inductor
+Shape=Inductor
+Mask=6913
+Used=54
+memo=Inductor
+Label Offset=18,9,11,12
+PinCnt=2
+Pin="Plus",6,0,-5,-9
+Pin="Minus",0,0,-3,-9
+
+[compdef]
+Name=Resistor
+Definition=Resistor
+Shape=Resistor
+Mask=6657
+Used=258
+memo=Resistor
+Label Offset=18,6,8,11
+PinCnt=2
+Pin="Plus",6,0,-10,-4
+Pin="Minus",0,0,-14,-4
+
+[compdef]
+Name=Capacitor
+Definition=Capacitor
+Shape=Capacitor
+Mask=6913
+Used=61
+memo=Capacitor
+Label Offset=16,12,12,12
+PinCnt=2
+Pin="Plus",6,0,-3,-5
+Pin="Minus",0,0,-14,-5
+
+[compdef]
+Name=Ground
+Definition=Ground
+Shape=Ground
+Mask=1793
+Used=349
+memo=Ground
+Label Offset=0,0,0,0
+PinCnt=1
+Pin="PinA",0,0,-3,-7
+
+[Circuit]
+Window Placement=2,3, -1,-1, -8,-31, 26,26,1416,609
+Default Object=Color=#000080
+Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
+Default Object Apply Border To Text=No
+Default Object Apply Fill To Text=No
+Default Object GridSnap=No
+NodeVoltageFormat=3
+CurrentFormat=3
+PowerFormat=3
+PathDelayFormat=3
+WarningFormat=3
+GridTextFormulaFormat=3
+SpiceType=AMBIGUOUS
+Title_Block_Border=None
+Title_Block=False
+Show Nodes=False
+Show Voltages=False
+Show Current=False
+Show Power=False
+Show Condition=False
+Show Pin Connections=False
+Show Connection Warnings=False
+Show Cross=True
+Show Attribute Text=True
+Show Grid Text=True
+
+[Object]
+Object=Line
+CBorder=#000080
+Px=1005,29,1005,1005
+GridSnap=True
+
+[Comp]
+Name=Voltage Source
+Px=216,216
+Rot=3
+
+[Attr]
+ON=-31,-27,PART
+V=V1
+Style=8192
+
+[Attr]
+ON=-102,-41,VALUE
+V=DC 10 AC 1 0 
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,SMOOTHING
+V=N
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseS
+V=N
+Style=256
+
+[Attr]
+ON=0,0,FRACTION
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseF
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 5 100n 10n 10n 400n 1u
+Style=256
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 10 AC 1 0 
+Style=256
+
+[Comp]
+Name=Inductor
+Px=320,144
+Rot=6
+
+[Attr]
+ON=-33,9,PART
+V=L1
+Style=8192
+
+[Attr]
+ON=-50,23,INDUCTANCE
+V=500u
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Inductor
+Px=464,224
+Rot=3
+
+[Attr]
+ON=-26,-26,PART
+V=L2
+Style=8192
+
+[Attr]
+ON=-46,-40,INDUCTANCE
+V=100m
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=464,256
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R1
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=568,152
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R2
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=416,144
+Rot=2
+
+[Attr]
+ON=-34,-20,PART
+V=R3
+Style=8192
+
+[Attr]
+ON=-33,-34,RESISTANCE
+V=1k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=568,288
+Rot=3
+
+[Attr]
+ON=-29,-26,PART
+V=C1
+Style=8192
+
+[Attr]
+ON=-44,-40,CAPACITANCE
+V=100u
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=216,144,216,168
+
+[Wire]
+Pxs=216,144,232,144
+
+[Wire]
+Pxs=320,144,344,144
+
+[Wire]
+Pxs=416,144,464,144
+
+[Wire]
+Pxs=568,144,568,152
+
+[Wire]
+Pxs=568,200,568,224
+
+[Wire]
+Pxs=568,288,568,320
+
+[Wire]
+Pxs=216,320,464,320
+
+[Wire]
+Pxs=216,216,216,320
+
+[Wire]
+Pxs=464,144,464,176
+
+[Wire]
+Pxs=464,144,560,144
+
+[Wire]
+Pxs=464,224,464,248
+
+[Wire]
+Pxs=464,304,464,320
+
+[Wire]
+Pxs=464,320,568,320
+
+[Comp]
+Name=Ground
+Px=216,320
+Rot=7
+
+[Comp]
+Name=Voltage Source
+Px=224,496
+Rot=3
+
+[Attr]
+ON=-31,-27,PART
+V=V2
+Style=8192
+
+[Attr]
+ON=-102,-41,VALUE
+V=DC 10 AC 1 0 
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,SMOOTHING
+V=N
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseS
+V=N
+Style=256
+
+[Attr]
+ON=0,0,FRACTION
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseF
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 5 100n 10n 10n 400n 1u
+Style=256
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 10 AC 1 0 
+Style=256
+
+[Comp]
+Name=Resistor
+Px=472,536
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R4
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=576,432
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R5
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=424,424
+Rot=2
+
+[Attr]
+ON=-34,-20,PART
+V=R6
+Style=8192
+
+[Attr]
+ON=-33,-34,RESISTANCE
+V=1k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=224,424,224,448
+
+[Wire]
+Pxs=224,424,376,424
+
+[Wire]
+Pxs=424,424,472,424
+
+[Wire]
+Pxs=576,424,576,432
+
+[Wire]
+Pxs=576,480,576,520
+
+[Wire]
+Pxs=576,568,576,600
+
+[Wire]
+Pxs=224,600,472,600
+
+[Wire]
+Pxs=224,496,224,600
+
+[Wire]
+Pxs=472,424,472,536
+
+[Wire]
+Pxs=472,424,576,424
+
+[Wire]
+Pxs=472,584,472,600
+
+[Wire]
+Pxs=472,600,576,600
+
+[Comp]
+Name=Ground
+Px=224,600
+Rot=7
+
+[Comp]
+Name=Resistor
+Px=464,840
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R7
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=568,736
+Rot=7
+
+[Attr]
+ON=-24,11,PART
+V=R8
+Style=8192
+
+[Attr]
+ON=-23,25,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=416,728
+Rot=2
+
+[Attr]
+ON=-34,-20,PART
+V=R9
+Style=8192
+
+[Attr]
+ON=-33,-34,RESISTANCE
+V=1k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=216,728,368,728
+
+[Wire]
+Pxs=416,728,464,728
+
+[Wire]
+Pxs=568,728,568,736
+
+[Wire]
+Pxs=568,784,568,824
+
+[Wire]
+Pxs=568,872,568,904
+
+[Wire]
+Pxs=216,904,464,904
+
+[Wire]
+Pxs=216,728,216,904
+
+[Wire]
+Pxs=464,728,464,840
+
+[Wire]
+Pxs=464,728,568,728
+
+[Wire]
+Pxs=464,888,464,904
+
+[Wire]
+Pxs=464,904,568,904
+
+[Comp]
+Name=Ground
+Px=216,904
+Rot=7
+
+[Wire]
+Pxs=232,144,272,144
+
+[Wire]
+Pxs=560,144,568,144
+
+[Wire]
+Pxs=344,144,368,144
+
+[Wire]
+Pxs=464,248,464,256
+
+[Wire]
+Pxs=568,224,568,240
+
+[Object]
+Object=Picture
+FT=PIC
+CBorder=None
+Px=1081,213,1340,332
+Rot=0
+KeepAspectRatio=False
+OrgName=Clipboard.bmp
+Embed=True
+ImageID=0
+DataSize=42486
+Data=424df6a5(006)36(003)28(003)9c(003)44(003)010020(009)[c40e00002](008)[ceffffff7](e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff11]ff(e43)[ffceffff35]
+Data=ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff10][ff00000019]ff00006eff00001d[ff00000025]ff00006eff00
+Data=001d[ff000000102][ffceffff6]ff(003)[ffc0c0c017]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c024]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c0101]ff(003)[ffceffff6]
+Data=ff(003)ff(c03)ffa5c0c0ff002ba1[ff0000802]ff894c80[ffc0c0c03]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff89c0c0ff000096ff6c2b80ff6c
+Data=a5b5ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff89c0c0ff000096ff6c2b80ffc0c0b5[ffc0c0c02]
+Data=ff6ca5c0ff00008cff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff4c89
+Data=c0[ff0000802]ff894c80[ffc0c0c02]ff2b6cb5ff000080ff2b0080ff002b8cffc08996ff89c0c0ff000096ff000080ff4c4c80ff000096ffc08996ff6ca5c0
+Data=ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff(c03)ff6ca5c0ff00008cff000080ff4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c011]
+Data=ff2b6cb5[ff0000802]ffa56c8c[ffc0c0c02]ff2b6cb5[ff0000802]ffa56c8c[ffc0c0c02]ff2b6cb5[ff0000802]ffa56c8cff(c03)ff89c0c0ff4c0096ff
+Data=c0c0abff(c03)ff2b6cb5[ff0000802]ffa56c8c[ffc0c0c02]ff2b6cb5[ff0000802]ffa56c8c[ffc0c0c02]ff4c89c0ff894c80[ffc0c0c017]ff(003)[ffceffff6]
+Data=ff(003)ffa5c0c0ff002ba1ffa56c8c[ffc0c0c02]ff004cabff894c80ff(c03)ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8c
+Data=ffc0c0b5ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5
+Data=[ffc0c0c03]ff6ca5c0ff00008cff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc089
+Data=96ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff4c008cffc0c0abff89c0c0ff000096ffc08996ff4c89c0ff894c80ff(c03)ff4c89c0
+Data=ff2b0080ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff89c0c0ff2b0096ffc0a5a1ff(c03)ff4c89c0ff6c2b80ff6ca5b5ff2b008cff
+Data=c0a5a1ffa5c0c0ff002ba1ffc08996[ffc0c0c09]ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff
+Data=4c89c0ff894c80[ffc0c0c02]ff004cabffc08996[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004c
+Data=abffc08996ff(c03)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c016]ff(003)ffce(ff3)[e4e4e4ff3][ceffffff2](003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c02]
+Data=ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff
+Data=2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff00008cff6c2b80ffc0c0b5
+Data=ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff4c89c0ff894c80[ffc0c0c04]ff2b6cb5ffa56c
+Data=8c[ffc0c0c02]ff004cabffc08996ff4c89c0ff4c0080ffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6c
+Data=a5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c07]ff4c89c0[ff0000804]ffc08996ff004cabffc08996[ffc0c0c02]ff2b6cb5ffa56c8c
+Data=ff004cabffc08996[ffc0c0c02]ff2b6cb5ffa56c8cff004cabffc08996[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c03]ff004cabffc08996[ffc0c0c02]ff2b
+Data=6cb5ffa56c8cff004cabffc08996[ffc0c0c02]ff2b6cb5ffa56c8cff(c03)ff89c0c0ff4c0096ffc0c0ab[ffc0c0c016]ff(003)[ffceffff6]ff(003)ff4c89
+Data=c0ff894c80[ffc0c0c03]ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c
+Data=2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff
+Data=00008cff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff4c89c0[ff0000804]
+Data=ffa56c8cff2b6cb5ffa56c8c[ffc0c0c02]ff004cabffc08996ff(c03)ff6ca5c0ff00008cff000080ff2b0080ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0
+Data=c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0[ff0000804]ffa56c8c[ffc0c0c09]ff004cabff6c2b80ffc0c0b5ff(c03)ff004c
+Data=abffc08996ff004cabff6c2b80ffc0c0b5ff(c03)ff004cabffc08996ff004cabff6c2b80ffc0c0b5ff(c03)ff004cabffc08996[ffc0c0c03]ff004cabff6c2b
+Data=80ffc0c0b5ff(c03)ff004cabffc08996ff004cabff6c2b80ffc0c0b5ff(c03)ff004cabffc08996[ffc0c0c02]ff004cabffa56c8c[ffc0c0c016]ff(003)[ffceffff6]
+Data=ff(003)ff4c89c0ff894c80[ffc0c0c03]ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0
+Data=b5ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]
+Data=ff6ca5c0ff00008cff2b0080ffc0a5a1ff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0
+Data=ff6c2b8cffc0c0b5ff(c03)ff004cabffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff00008cffc08996ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff4c0096ff
+Data=c0c0abff6ca5c0ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0abff89c0c0ff2b0096ffc0a5a1ff(c03)ff2b6cb5ff894c80ff6ca5c0ff6c2b8cffc0c0b5ff(c03)
+Data=ff004cabffc08996[ffc0c0c03]ff4c89c0[ff0000804]ffc08996ff004cabff6c6c96ff00008cff000080ff894c80ff(c03)ff004cabff6c6c96ff00008cff00
+Data=0080ff894c80ff(c03)ff004cabff6c6c96ff00008cff000080ff894c80[ffc0c0c04]ff004cabff6c6c96ff00008cff000080ff894c80ff(c03)ff004cabff6c
+Data=6c96ff00008cff000080ff894c80[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c015]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c02]
+Data=ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ff6ca5b5ff4c2b8cff002b96ff000080
+Data=ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ffc0c0b5[ffc0c0c02]ff6ca5c0ff00008cff4c2b
+Data=80ff002b96ff000080ff896c8cff002ba1ff000080ffa56c8cff6ca5c0ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff4c89c0[ff0000802]ff894c80
+Data=[ffc0c0c02]ff2b6cb5ff000080ff4c2b80ff002b96ffc08996ff(c03)ff2b6cb5[ff0000802]ff894c80ff(c03)ff6ca5c0ff4c4c8cff000096ff000080ff89
+Data=4c80[ffc0c0c02]ff6ca5c0ff00008cff000080ff4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c010]ff2b6cb5ffa56c8c[ffc0c0c04]
+Data=ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c07]ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c07]ff004cabffc08996[ffc0c0c015]
+Data=ff(003)[ffceffff6]ff(003)ffa5c0c0ff002ba1ffa56c8c[ffc0c0c02]ff004cabff894c80[ffc0c0c07]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c012]ff6ca5
+Data=c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c021]ffa5c0c0ff002ba1ffc08996[ffc0c0c033]ff6ca5c0ff6c2b8cffc0c0b5ffa5
+Data=c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff002ba1ffc08996[ffc0c0c03]ff
+Data=6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff002ba1ffc08996[ffc0c0c03]ff6ca5c0ff4c008cffc0c0ab
+Data=[ffc0c0c014]ff(003)[ffceffff6]ff(003)ff(c03)ffa5c0c0ff002ba1[ff0000802]ff894c80[ffc0c0c08]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c012]ff
+Data=89c0c0ff6c2b96ffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c021]ffa5c0c0ff002ba1ffc08996[ffc0c0c034]ff2b6cb5[ff0000802]ff89
+Data=4c80[ffc0c0c02]ff2b6cb5[ff0000802]ff894c80[ffc0c0c02]ff2b6cb5[ff0000802]ff894c80[ffc0c0c05]ff2b6cb5[ff0000802]ff894c80[ffc0c0c02]
+Data=ff2b6cb5[ff0000802]ff894c80ff(c03)ff2b6cb5[ff0000804]ffa56c8c[ffc0c0c014]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]
+Data=ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c08]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c024]
+Data=ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c0110]ff(003)[ffceffff6]ff(003)[ffc0c0c08]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c024]ff6ca5c0ff6c2b8cffc0
+Data=c0b5[ffc0c0c0110]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff4c2b8cff002b
+Data=96ff000080ff894c80[ffc0c0c02]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff89c0c0ff000096ff6c2b80ffc0c0b5[ffc0c0c02]ff6ca5c0ff00008c
+Data=ff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff4c89c0[ff0000802]ff
+Data=894c80[ffc0c0c02]ff2b6cb5ff000080ff2b0080ff002b8cffc08996ff89c0c0ff000096ff000080ff4c4c80ff000096ffc08996ff6ca5c0ff6c2b8cffc0c0b5
+Data=ffa5c0c0ff2b2ba1ffc0a5a1ff(c03)ff6ca5c0ff00008cff000080ff4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c011]ff004cab[ff0000802]
+Data=ffa56c8c[ffc0c0c02]ff4c89c0[ff0000802]ffc08996[ffc0c0c02]ff4c89c0[ff0000802]ffc08996[ffc0c0c02]ff4c89c0[ff0000802]ffc08996[ffc0c0c039]
+Data=ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1
+Data=ffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff00008cff6c2b80ffc0c0b5ff6ca5
+Data=c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc089
+Data=96ff6ca5c0ff4c008cffc0c0abff89c0c0ff000096ffc08996ff4c89c0ff894c80ff(c03)ff4c89c0ff2b0080ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0
+Data=ff2b2ba1ffc0a5a1ff89c0c0ff2b0096ffc0a5a1ff(c03)ff4c89c0ff6c2b80ff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996[ffc0c0c09]ff4c89
+Data=c0ff894c80[ffc0c0c02]ff004cabffc08996ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0
+Data=c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0ab[ffc0c0c038]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5
+Data=ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff
+Data=6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff00008cff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff(c03)
+Data=ff2b6cb5ffa56c8cff4c89c0ff894c80[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c02]ff004cabffc08996ff4c89c0ff4c0080ffc0c0abff89c0c0ff2b0096ff
+Data=c0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c07]ff4c89c0[ff0000804]
+Data=ffc08996[ffc0c0c04]ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5
+Data=a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c038]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff
+Data=a5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c
+Data=2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff00008cff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff(c03)ff
+Data=2b6cb5ffa56c8cff4c89c0[ff0000804]ffa56c8cff2b6cb5ffa56c8c[ffc0c0c02]ff004cabffc08996ff(c03)ff6ca5c0ff00008cff000080ff2b0080ffc0a5
+Data=a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0[ff0000804]ffa56c8c[ffc0c0c013]ff00
+Data=4cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff00
+Data=4cabffc08996[ffc0c0c038]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0abff6ca5c0ff2b008c
+Data=ffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff0000
+Data=8cff2b0080ffc0a5a1ff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0
+Data=b5ff(c03)ff004cabffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff00008cffc08996ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff4c0096ffc0c0abff6ca5c0
+Data=ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0abff89c0c0ff2b0096ffc0a5a1ff(c03)ff2b6cb5ff894c80ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff004cabff
+Data=c08996[ffc0c0c03]ff4c89c0[ff0000804]ffc08996[ffc0c0c02]ff2b6cb5ff000080ffc08996ff(c03)ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996
+Data=ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996[ffc0c0c038]ff(003)[ffceffff6]ff(003)ff6ca5
+Data=c0ff6c2b8cff6ca5b5ff4c4c8cff000096ff000080ff894c80ff(c03)ff6ca5c0ff4c2b8cff002b96ff000080ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5
+Data=ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ffc0c0b5[ffc0c0c02]ff6ca5c0ff00008cff4c2b80ff002b96ff000080ff896c8cff002ba1ff0000
+Data=80ffa56c8cff6ca5c0ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff4c89c0[ff0000802]ff894c80[ffc0c0c02]ff2b6cb5ff000080ff4c2b80ff002b
+Data=96ffc08996ff(c03)ff2b6cb5[ff0000802]ff894c80ff(c03)ff6ca5c0ff4c4c8cff000096ff000080ff894c80[ffc0c0c02]ff6ca5c0ff00008cff000080ff
+Data=4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c013]ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0
+Data=a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c038]ff(003)[ffceffff6]
+Data=ff(003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c017]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c021]ffa5c0c0ff002b
+Data=a1ffc08996[ffc0c0c033]ff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b
+Data=0096ffc0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0ab[ffc0c0c038]ff(003)[ffe4e4e46]ff(003)ff6ca5c0
+Data=ff6c2b8cffc0c0b5[ffc0c0c017]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c021]ffa5c0c0ff002ba1ffc08996[ffc0c0c034]
+Data=ff004cab[ff0000802]ffc08996[ffc0c0c02]ff4c89c0[ff0000802]ffc08996[ffc0c0c02]ff4c89c0[ff0000802]ffc08996[ffc0c0c02]ff4c89c0[ff0000802]
+Data=ffc08996[ffc0c0c039]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]
+Data=ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c02]ff2b6cb5ffa56c8c
+Data=[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff89c0c0ff000096ff000080ff4c4c80ff000096ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2b
+Data=a1ffc0a5a1ff(c03)ff004cab[ff0000802]ff6c2b80ffc0c0b5ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff4c89c0[ff0000802]ff894c80ff(c03)ff6c
+Data=a5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c04]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff6ca5c0ff6c2b8cffc0c0
+Data=b5ffa5c0c0ff2b2ba1ffc0a5a1ff(c03)ff6ca5c0ff00008cff000080ff4c0080ffc0c0abff89c0c0ff000096ff6c2b80ff6ca5b5ff6c2b8cffc0c0b5ff2b6cb5
+Data=[ff0000802]ffc08996ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c014]ff4c89c0[ff0000802]ffc08996ff(c03)ff89c0c0
+Data=ff4c0096ffc0c0abff(c03)ff004cab[ff0000802]ffa56c8c[ffc0c0c02]ff004cab[ff0000802]ffa56c8c[ffc0c0c02]ff004cab[ff0000802]ffa56c8c[ffc0c0c02]
+Data=ff004cab[ff0000802]ffa56c8c[ffc0c0c02]ff004cab[ff0000802]ffa56c8c[ffc0c0c02]ff004cab[ff0000802]ffa56c8c[ffc0c0c06]ff(003)[ffceffff6]
+Data=ff(003)[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff4c89c0ff894c80ff(c03)ff4c89c0ff2b0080ffc0a5a1ff6ca5
+Data=c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff2b6cb5ff894c80[ffc0c0c02]ff004cabffa56c8cff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff2b
+Data=008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff4c008cffc0c0
+Data=abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff89c0c0ff2b0096ffc0a5a1ff(c03)ff4c89c0ff6c2b80ff6ca5b5
+Data=ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1
+Data=[ffc0c0c013]ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0ab[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c
+Data=80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c
+Data=80[ffc0c0c02]ff004cabffc08996ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996[ffc0c0c05]ff(003)[ffceffff6]ff(003)[ffc0c0c02]ff2b6cb5ff
+Data=a56c8c[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff4c89c0ff4c0080ffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0
+Data=ff2b2ba1ffc0a5a1[ffc0c0c02]ff6ca5c0ff00008cff000080ffc08996ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff4c89c0ff894c80[ffc0c0c04]ff6ca5c0ff6c
+Data=2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0
+Data=b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff4c89b5ff894c80[ffc0c0c02]
+Data=ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c03]ff4c89c0[ff0000804]ffc08996ff004cab[ff0000802]ff894c80
+Data=ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c07]ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c
+Data=[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c04]ff2b6cb5ffa56c8c[ffc0c0c05]ff(003)[ffceffff6]ff(003)[ffc0c0c02]
+Data=ff2b6cb5ffa56c8c[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c02]ff6ca5c0ff00008cff000080ff2b0080ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff
+Data=a5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff00008cff000080ff894c80[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff4c89c0[ff0000804]ffa56c8cff6ca5c0ff6c
+Data=2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0
+Data=b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff4c89b5ff894c80[ffc0c0c02]
+Data=ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c013]ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996[ffc0c0c07]
+Data=ff004cabffc08996[ffc0c0c04]ff004cabffc08996[ffc0c0c04]ff004cabffc08996[ffc0c0c04]ff004cabffc08996[ffc0c0c04]ff004cabffc08996[ffc0c0c04]
+Data=ff004cabffc08996[ffc0c0c05]ff(003)[ffceffff6]ff(003)[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c02]ff6ca5c0ff2b008cffc0a5a1ff(c03)ff6ca5c0
+Data=ff6c2b8cffc0c0b5ff89c0c0ff4c0096ffc0c0abff6ca5c0ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0abff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ff
+Data=c0c0abff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff004cabffc08996ff6ca5c0ff2b008cffc0a5a1[ffc0c0c03]ff6ca5c0ff
+Data=00008c[ff0000802]ff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0ab
+Data=ff89c0c0ff2b0096ffc0a5a1ff(c03)ff2b6cb5ff894c80ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff6ca5b5ff4c008cffc0c0abff89c0c0ff2b0096ff
+Data=c0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff4c89c0[ff0000804]ffc08996[ffc0c0c04]ff4c89c0ff894c80[ffc0c0c02]
+Data=ff004cabffc08996[ffc0c0c05]ff2b6cb5ff000080ffc08996[ffc0c0c03]ff2b6cb5ff000080ffc08996[ffc0c0c03]ff2b6cb5ff000080ffc08996[ffc0c0c03]
+Data=ff2b6cb5ff000080ffc08996[ffc0c0c03]ff2b6cb5ff000080ffc08996[ffc0c0c03]ff2b6cb5ff000080ffc08996[ffc0c0c06]ff(003)[ffceffff6]ff(003)
+Data=[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c02]ff6ca5c0ff4c2b8cff002b96ff4c0080ffc0c0abff2b6cb5[ff0000802]ff894c80ff(c03)ff6ca5c0ff4c4c8c
+Data=ff000096ff000080ff894c80ff(c03)ffa5c0c0ff002ba1[ff0000802]ffa56c8cff(c03)ff89c0c0ff000096ff000080ff4c0080ffc0c0abff4c89c0[ff0000802]
+Data=ff894c80ff(c03)ff6ca5c0ff4c2b8cff002b96ff4c0080ffc0c0abff(c03)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0
+Data=ff2b2ba1ffc0a5a1ff6ca5c0ff4c4c8cff000096ff000080ff894c80[ffc0c0c02]ff6ca5c0ff00008cff000080ff4c0080ffa5c0abff002ba1ff000080ff6c2b
+Data=80ff6ca5b5ff6c2b8cffc0c0b5ff2b6cb5[ff0000802]ffa56c8cff(c03)ff6ca5c0ff4c4c8cff000096ff000080ff894c80[ffc0c0c014]ff6ca5c0ff6c2b8c
+Data=ffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c06]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096
+Data=ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c05]ff(003)
+Data=[ffceffff6]ff(003)[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c025]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c012]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c021]
+Data=ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c027]ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0ab[ffc0c0c03]ff4c89c0ff894c80ff(c03)ff89c0c0ff
+Data=4c0096ffc0c0abff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0abff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0abff4c89c0ff894c80ff(c03)
+Data=ff89c0c0ff4c0096ffc0c0abff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0abff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0ab[ffc0c0c05]
+Data=ff(003)[ffceffff6]ff(003)ff00008c[ff0000804]ff2b0080ffc0a5a1[ffc0c0c022]ffa5c0c0ff002ba1ff000080ffc08996[ffc0c0c011]ff6ca5c0ff00
+Data=008c[ff0000803]ffa56c8c[ffc0c0c018]ff89c0c0ff6c2b96ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c025]ff4c89c0[ff0000802]ffc08996[ffc0c0c05]
+Data=ff004cab[ff0000802]ffc08996[ffc0c0c02]ff004cab[ff0000802]ffc08996[ffc0c0c02]ff004cab[ff0000802]ffc08996[ffc0c0c02]ff004cab[ff0000802]
+Data=ffc08996[ffc0c0c02]ff004cab[ff0000802]ffc08996[ffc0c0c02]ff004cab[ff0000802]ffc08996[ffc0c0c06]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]
+Data=ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c08]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c0137]ff(003)[ffceffff6]
+Data=ff(003)[ffc0c0c08]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c0137]ff(003)ffce(ff3)[e4e4e4ff3][ceffffff2](003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b
+Data=8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff89
+Data=c0c0ff000096ff6c2b80ffc0c0b5[ffc0c0c03]ff2b6cb5[ff0000803]ffa56c8cff(c03)ff2b6cb5[ff0000802]ffc08996[ffc0c0c02]ff004cabff000080ff
+Data=4c2b80ff2b2b96ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c02]ff6ca5c0ff00008cff000080ff4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c
+Data=80[ffc0c0c04]ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff6ca5c0ff2b008cffc0a5a1ff89c0c0ff000096ff000080ff4c4c80ff000096ffc08996ff6ca5c0ff6c
+Data=2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cff4c89b5[ff0000802]ff894c80[ffc0c0c012]ffa5c0c0ff002ba1ff6c2b80ffc0c0b5[ffc0c0c04]
+Data=ff89c0c0ff4c0096ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6c
+Data=a5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff
+Data=4c89c0ff4c0080ffc0c0abff(c03)ffa5c0c0ff002ba1ff6c6c96ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b
+Data=008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff89c0c0ff2b0096ffc0a5a1ff(c03)ff4c89c0ff6c2b80ff6ca5b5ff2b008cffc0a5a1ffa5c0c0ff002b
+Data=a1ffc08996[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff004cabff2b0080ffc0a5a1ff4c89c0ff894c80ff(c03)ff4c89c0ff2b0080ffc0a5a1ff6ca5
+Data=c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff00008cff2b0080ffc0a5a1ffa5c0c0ff002ba1ffc08996[ffc0c0c011]ff6ca5c0ff4c2b8cff
+Data=2b2b96ffc0a5a1[ffc0c0c04]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ff
+Data=a5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c
+Data=2b8cffc0c0b5[ffc0c0c08]ff2b6cb5ff2b2b8cff894c80[ffc0c0c02]ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5
+Data=c0ff6c2b8cffc0c0b5ff(c03)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c07]ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c4c8cff
+Data=2b2ba1ffc0a5a1ff4c89c0ff4c0080ffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff00008cff
+Data=894c80[ffc0c0c07]ff4c89c0[ff0000804]ffc08996[ffc0c0c02]ff004cabffc08996ff2b6cb5ff894c80[ffc0c0c04]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c037]
+Data=ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5
+Data=ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c06]ff89c0c0ff000096ff4c0080ff4c89abff894c
+Data=80[ffc0c0c02]ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff6ca5c0ff6c2b8cffc0
+Data=c0b5[ffc0c0c03]ff4c89c0[ff0000804]ffa56c8c[ffc0c0c03]ff6ca5c0ff6c2b8cffc0c0b5ff2b4cabffa5a5a1ff2b2ba1ffc0a5a1ff(c03)ff6ca5c0ff00
+Data=008cff000080ff2b0080ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff00008c[ff0000804]ffa56c8c[ffc0c0c010]ff89c0
+Data=c0ff4c0096ffc0c0abff89c0c0ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff4c0096ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b
+Data=8cff6ca5b5ff4c008cffc0c0abff89c0c0ff4c0096ffc0c0abff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0
+Data=c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c04]ff004cabff000080ff4c0080ffc0c0abff(c03)ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b
+Data=0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff2b008cffc0a5a1ff(c03)ff89c0c0ff2b0096ffc0a5a1ff(c03)ff2b6c
+Data=b5ff894c80ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff004cabffc08996[ffc0c0c03]ff6ca5c0ff6c2b8cff6ca5b5ff894c8cffa5c0c0ff2b2ba1ffc0a5a1ff6c
+Data=a5c0ff6c2b8cffc0c0b5ff89c0c0ff4c0096ffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff00008cff6c2b80ffc0c0b5ff(c03)
+Data=ff004cabffc08996[ffc0c0c03]ff4c89c0[ff0000804]ffc08996ff(c03)ff2b6cb5ff894c80[ffc0c0c02]ff004cabffa56c8c[ffc0c0c03]ff89c0c0ff4c00
+Data=96ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cff6ca5b5ff4c4c8cff000096ff000080ff894c80ff(c03)ff6ca5c0ff4c2b8cff
+Data=002b96ff000080ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ffc0c0b5[ffc0c0c02]ff6ca5c0
+Data=ff6c2b8cffc0c0b5[ffc0c0c04]ff2b6cb5[ff0000802]ffa56c8cff(c03)ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff4c2b8cff00
+Data=2b96ff4c0080ffc0c0abff6ca5c0ff00008cff000080ff4c0080ffc0c0abff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c04]ff6ca5c0ff6c2b8cff2b4ca1
+Data=ffc0a5a1ffa5c0c0ff2b2ba1ffc0a5a1ff(c03)ff2b6cb5[ff0000802]ff894c80ff(c03)ff6ca5c0ff4c2b8cff002b96ff000080ff896c8cff002ba1ff000080
+Data=ffa56c8cff4c89c0[ff0000802]ff894c80[ffc0c0c010]ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff4c2ba1ff89c0
+Data=abff4c0096ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c017]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff
+Data=6ca5c0ff4c008cffc0c0abff(c03)ff6ca5c0ff2b008cffc0a5a1[ffc0c0c030]ff6ca5c0ff00008cff894c80ff(c03)ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c028]
+Data=ff4c89c0ff6c2b80ffc0c0b5[ffc0c0c02]ffa5c0c0ff002ba1ffc08996ff(c03)ff89c0c0ff000096ff4c0080ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]
+Data=ff(003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c017]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c04]ff4c89c0[ff0000803]ffc08996[ffc0c0c031]ff6ca5c0ff2b
+Data=008cffc0a5a1ff(c03)ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c027]ffa5c0c0ff002ba1ffa56c8c[ffc0c0c04]ff2b6cb5ff6c2b80ffc0c0b5ff(c03)ff89c0c0
+Data=ff4c0096ffc0c0ab[ffc0c0c037]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6]ff(003)
+Data=[ffc0c0c0148]ff(003)[ffceffff6]ff(003)[ffc0c0c017]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c027]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c056]ff2b6c
+Data=b5ffa56c8c[ffc0c0c015]ffa5c0c0ff896ca1[ffc0c0c010]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c010]ff(003)[ffceffff6]ff(003)[ffc0c0c017]ff6ca5
+Data=c0ff6c2b8cffc0c0b5[ffc0c0c027]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c055]ff6ca5c0ff894c8c[ffc0c0c017]ff4c4c[abffc0c02][c0ffc0c09]c0ff4c
+Data=89c0ffa56c8c[ffc0c0c010]ff(003)[ffceffff6]ff(003)ff(c03)ffa5c0c0ff002ba1[ff0000802]ff894c80[ffc0c0c03]ff004cabff000080ff4c2b80ff
+Data=2b2b96ffc0a5a1ff89c0c0ff000096ff6c2b80ff6ca5b5ff4c2b8cff002b96ff000080ff894c80[ffc0c0c02]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1
+Data=ff89c0c0ff000096ff6c2b80ffc0c0b5[ffc0c0c02]ff4c89c0[ff0000804]ffa58996ff002ba1ff894c80[ffc0c0c02]ff004cabff894c80ff6ca5c0ff4c2b8c
+Data=ff002b96ff000080ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff4c89c0[ff0000802]ff894c80[ffc0c0c02]ff004cab[ff0000802]ff6c2b80ff
+Data=c0c0b5ff(c03)ff004cab[ff0000802]ff6c2b80ffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff2b6cb5[ff0000802]ffc08996ff(c03)ff6ca5c0ff6c2b8cffc0c0
+Data=b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c011]ffa5c0c0ff002ba1ff6c2b80ffc0c0b5[ffc0c0c02]ff2b4cabffc0a5a1[ffc0c0c02]ff2b6cb5[ff0000802]ff
+Data=c08996[ffc0c0c02]ff004cabff000080ff4c2b80ff2b2b96ffc0a5a1ff89c0c0ff000096ff6c2b80ff89c0b5ff4c0096ffc0c0ab[ffc0c0c03]ff89c0c0ff00
+Data=0096ff000080ff4c4c80ff000096ffc08996ff(c03)ffa5c0c0ff4c2ba1ffc0c0ab[ffc0c0c09]ff(003)[ffceffff6]ff(003)ffa5c0c0ff002ba1ffa56c8c[ffc0c0c02]
+Data=ff004cabff894c80ff(c03)ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff
+Data=002ba1ffc08996ff6ca5c0ff4c008cffc0c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c04]ffa5
+Data=c0c0ff002ba1ffc08996ff4c89c0ff6c2b80ffc0c0b5ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff2b
+Data=008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff2b6cb5ff894c80[ffc0c0c02]ff004cabffa56c8cff2b6cb5ff894c80[ffc0c0c02]ff004cabffa56c8cff6ca5
+Data=c0ff6c2b8cff6ca5b5ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c011]ff6ca5c0ff
+Data=4c2b8cff2b2b96ffc0a5a1ff(c03)ff89c0c0ff4c0096ffc0c0abff(c03)ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0
+Data=c0abff6ca5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c06]ff4c89c0ff894c80ff(c03)ff4c89c0ff2b0080ffc0a5a1[ffc0c0c02]ff004cab
+Data=ffc08996[ffc0c0c09]ff(003)[ffceffff6]ff(003)ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c02]ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cffc0c0b5ff
+Data=89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b
+Data=0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c05]ff6ca5c0ff00008cff2b0080ffc0a5a1ff(c03)ff6ca5c0ff6c2b8c
+Data=ffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff4c89c0ff894c80[ffc0c0c06]ff6ca5c0ff00008cff000080ffc08996[ffc0c0c02]ff6c
+Data=a5c0ff00008cff000080ffc08996ff6ca5c0ff6c2b8cff4c89b5ff894c80[ffc0c0c02]ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ff
+Data=c0a5a1[ffc0c0c03]ff4c89c0[ff0000804]ffc08996[ffc0c0c02]ff004cabffc08996ff2b6cb5ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff4c
+Data=89c0ff894c80[ffc0c0c02]ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c06]ff4c89
+Data=c0ff4c0080ffc0c0abff89c0c0ff2b0096ffc0a5a1[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c09]ff(003)[ffceffff6]ff(003)ff4c89c0ff894c80[ffc0c0c03]
+Data=ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff
+Data=2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c05]ffa5
+Data=c0c0ff002ba1ff6c2b80ffc0c0b5ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff2b6cb5ffa56c8cff6ca5c0ff6c2b8cffc0c0b5ff4c89c0[ff0000804]ffa5
+Data=6c8cff6ca5c0ff00008cff000080ff894c80[ffc0c0c02]ff6ca5c0ff00008cff000080ff894c80[ffc0c0c02]ff6ca5c0ff6c2b8cff4c89b5ff894c80[ffc0c0c02]
+Data=ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1[ffc0c0c010]ff89c0c0ff4c0096ffc0c0abff89c0c0ff4c0096ffc0c0abff6c
+Data=a5c0ff6c2b8cffc0c0b5ff(c03)ff4c89c0ff894c80[ffc0c0c02]ff004cabffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff
+Data=6c2b8cffc0c0b5[ffc0c0c07]ff6ca5c0ff00008cff000080ff2b0080ffc0a5a1[ffc0c0c02]ff2b6cb5ffa56c8c[ffc0c0c09]ff(003)[ffceffff6]ff(003)
+Data=ff4c89c0ff894c80[ffc0c0c03]ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff6ca5
+Data=c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c
+Data=89c0[ff0000803]ff6c2b80ffc0c0b5ff(c03)ff004cabffa56c8cff004cabff894c80ff(c03)ff6ca5c0ff2b008cffc0a5a1ffa5c0c0ff002ba1ffc08996ff6c
+Data=a5c0ff2b008cffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ff(c03)ff004cabffc08996ff4c89c0ff894c80ff(c03)ff89c0c0ff4c0096ffc0c0abff4c89c0ff894c
+Data=80ff(c03)ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cff6ca5b5ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff4c008cffc0c0abff89c0c0
+Data=ff4c0096ffc0c0ab[ffc0c0c03]ff4c89c0[ff0000804]ffc08996ff(c03)ff2b6cb5ff894c80[ffc0c0c02]ff004cabffa56c8cff89c0c0ff4c0096ffc0c0ab
+Data=ff(c03)ff6ca5c0ff4c008cffc0c0abff89c0c0ff2b0096ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffc0a5a1ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c06]
+Data=ff6ca5c0ff6c2b8cffc0c0b5ff89c0c0ff4c0096ffc0c0ab[ffc0c0c02]ff2b6cb5ffc08996[ffc0c0c09]ff(003)[ffe4e4e46]ff(003)ff6ca5c0ff6c2b8cff
+Data=c0c0b5[ffc0c0c02]ff89c0c0ff4c0096ffc0c0abff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ff6ca5b5ff4c2b8c
+Data=ff002b96ff000080ff894c80ff(c03)ff6ca5c0ff6c2b8cffc0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ffc0c0b5[ffc0c0c02]ff4c89
+Data=c0ff894c80[ffc0c0c04]ff004cabff6c2b80ffc0c0b5ffa5c0c0ff002ba1ffa56c8cff6ca5c0ff4c2b8cff002b96ff000080ff894c80ff(c03)ff6ca5c0ff4c
+Data=2b8cff002b96ff4c0080ff4c89ab[ff0000802]ff894c80ff(c03)ffa5c0c0ff002ba1[ff0000802]ffa56c8cff(c03)ffa5c0c0ff002ba1[ff0000802]ffa56c
+Data=8cff(c03)ff6ca5c0ff6c2b8cffc0c0b5ff2b6cb5[ff0000802]ffa56c8cff(c03)ff6ca5c0ff4c4c8cff000096ff000080ff894c80[ffc0c0c010]ffa5c0c0ff
+Data=2b2ba1ffc0a5a1[ffc0c0c02]ff6ca5c0ff6c2b8cffc0c0b5ff2b4cabffc0a5a1[ffc0c0c02]ff2b6cb5[ff0000802]ffa56c8cff(c03)ff6ca5c0ff6c2b8cff
+Data=c0c0b5ffa5c0c0ff2b2ba1ffa5a5a1ff002ba1ff000080ff6c2b80ffc0c0b5[ffc0c0c06]ff2b6cb5[ff0000802]ff894c80[ffc0c0c02]ffa5c0c0ff4c2ba1ff
+Data=c0c0ab[ffc0c0c09]ff(003)[ffceffff6]ff(003)ffa5c0c0ff002ba1ffa56c8c[ffc0c0c02]ff004cabff894c80[ffc0c0c07]ff6ca5c0ff6c2b8cffc0c0b5
+Data=[ffc0c0c012]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c03]ff4c89c0ff894c80[ffc0c0c060]ff4c89c0ff6c2b80ffc0c0b5[ffc0c0c02]ffa5c0c0ff002ba1ff
+Data=c08996ff6ca5c0ff894c8c[ffc0c0c013]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c013]ff4c89c0ffa56c8c[ffc0c0c010]ff(003)[ffceffff6]ff(003)ff(c03)
+Data=ffa5c0c0ff002ba1[ff0000802]ff894c80[ffc0c0c08]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c012]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c03]ff4c89c0[ff0000803]
+Data=ff2b0080ffc0a5a1[ffc0c0c033]ff6ca5c0ff6c2b8cffc0c0b5[ffc0c0c019]ffa5c0c0ff002ba1ffa56c8c[ffc0c0c04]ff2b6cb5ff6c2b80ffc0c0b5ff2b6c
+Data=b5ffa56c8c[ffc0c0c012]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c012]ff89c0c0ff6c2b96ffc0c0b5[ffc0c0c010]ff(003)[ffceffff6]ff(003)[ffc0c0c0148]
+Data=ff(003)[ffceffff6]ff(003)[ffc0c0c0148]ff(003)[ffceffff6][ff000000150][ffceffff7]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff11]ff(e43)[ffceffff35]
+Data=ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff4]ff
+
+[Object]
+Object=Picture
+FT=PIC
+CBorder=None
+Px=635,893,903,1029
+Rot=0
+KeepAspectRatio=False
+OrgName=Clipboard.bmp
+Embed=True
+ImageID=1
+DataSize=49034
+Data=424d8abf(006)36(003)28(003)9b(003)4f(003)010020(009)[c40e00002](008)[ceffffff9](e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff28]ff(e43)[ffceffff35]
+Data=ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff46]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff46]
+Data=ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff28]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff10]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=[ff98f9512][ffceffff9]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff15][ff98f9512][ffceffff29]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff14]
+Data=ff98f951[ffceffff31]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff13]ff98f951[ffceffff13][ff0000005][ffceffff14]
+Data=ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff13]ff98f951[ffceffff13][ff0000005][ffceffff14]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff12]ff98f951[ffceffff14]
+Data=[ff00000020]ff00006eff00001c[ff00000025]ff00006eff00001c[ff00000091]ff98f951[ffceffff6][ffe4e4e48][ff0000005][ff98f95114]ff55d551
+Data=ff553679ff98f959[ff98f95124]ff55d551ff553679ff98f959[ff98f95193][ffceffff13][ff0000005][ff0000802]ff6c6380[ff98f9513]ff006361ff00
+Data=0080ff3c3680ff213671ff98d569ff6cf951ff000071ff553680ff55d559ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff006361ff000080ff3c3680ff
+Data=213671ff98d569ff6cf951ff000071ff553680ff98f959[ff98f9512]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff98f959ff55d551ff553679
+Data=ff55d559ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff3cb151[ff0000802]ff6c6380[ff98f9512]ff218b59ff000080ff210080ff003679ff98b171
+Data=ff6cf951ff000071ff000080ff3c6380ff000071ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff98f951ff55d551ff000079ff000080
+Data=ff3c0080ff98f961ff98f951ff3cb151[ff0000802]ff6c6380[ff98f95111]ff218b59[ff0000802]ff828b79[ff98f9512]ff218b59[ff0000802]ff828b79
+Data=[ff98f9512]ff218b59[ff0000802]ff828b79ff98f951ff6cf951ff3c0071ff98f961ff98f951ff218b59[ff0000802]ff828b79[ff98f9512]ff218b59[ff0000802]
+Data=ff828b79[ff98f9512]ff3cb151ff6c6380[ff98f9519][ffceffff13]ff(003)ff98f951ff82f951ff003669ff828b79[ff98f9512]ff006361ff6c6380ff98
+Data=f951ff55d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55
+Data=d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff
+Data=98f959ff55d551ff553679ff55d559ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff
+Data=3c0079ff98f961ff6cf951ff000071ff98b171ff3cb151ff6c6380ff98f951ff3cb151ff210080ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff
+Data=98d569ff6cf951ff210071ff98d569ff98f951ff3cb151ff553680ff55d559ff210079ff98d569ff82f951ff003669ff98b171[ff98f9519]ff3cb151ff6c6380
+Data=[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171[ff98f9513]ff3c
+Data=b151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff98f951ff55d551ff553679ff98f959[ff98f9519][ffceffff12]
+Data=ff(003)ff98f951ff55d551ff553679ff98f959[ff98f9512]ff6cf951ff3c0071ff98f961ff55d551ff553679ff98f959ff6cf951ff210071ff98d569ff55d5
+Data=51ff553679ff98f959ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff6cf951ff210071ff98d569ff55d551ff5536
+Data=79ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff553679ff98f959ff98f951ff21
+Data=8b59ff828b79ff3cb151ff6c6380[ff98f9514]ff218b59ff828b79[ff98f9512]ff006361ff98b171ff3cb151ff3c0080ff98f961ff6cf951ff210071ff98d5
+Data=69ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9517]ff3cb151[ff0000804]
+Data=ff98b171ff006361ff98b171[ff98f9512]ff218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59
+Data=ff828b79[ff98f9513]ff006361ff98b171[ff98f9512]ff218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59ff828b79ff98f951ff6cf951ff3c0071
+Data=ff98f961[ff98f95111][ffceffff10]ff(003)ff98f951ff3cb151ff6c6380[ff98f9513]ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff82f9
+Data=51ff213669ff98d569ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff82f951ff2136
+Data=69ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff55
+Data=3679ff98f959ff98f951ff218b59ff828b79ff3cb151[ff0000804]ff828b79ff218b59ff828b79[ff98f9512]ff006361ff98b171ff98f951ff55d551ff0000
+Data=79ff000080ff210080ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151[ff0000804]
+Data=ff828b79[ff98f9519]ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff5536
+Data=80ff98f959ff98f951ff006361ff98b171[ff98f9513]ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff553680ff98f959ff98f951ff00
+Data=6361ff98b171[ff98f9512]ff006361ff828b79[ff98f95113][ffceffff8]ff(003)ff98f951ff3cb151ff6c6380[ff98f9513]ff82f951ff213669ff98d569
+Data=ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551
+Data=ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff210080ff98d569ff55d551ff210079ff98d5
+Data=69ff55d551ff553679ff55d559ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff98f951ff006361ff98b171ff55d551ff3c00
+Data=79ff98f961ff55d551ff000079ff98b171ff55d551ff553679ff98f959ff6cf951ff3c0071ff98f961ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f9
+Data=61ff6cf951ff210071ff98d569ff98f951ff218b59ff6c6380ff55d551ff553679ff98f959ff98f951ff006361ff98b171[ff98f9513]ff3cb151[ff0000804]
+Data=ff98b171ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079
+Data=ff000080ff6c6380[ff98f9514]ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079ff000080ff6c6380[ff98f9513]ff
+Data=55d551ff553679ff98f959[ff98f95111]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f9512]ff6cf951ff3c0071ff98f961ff
+Data=55d551ff553679ff98f959ff82f951ff213669ff82d569ff003669ff000080ff553680ff55d559ff3c3679ff003671ff000080ff6c6380ff98f951ff55d551ff
+Data=553679ff98f959ff82f951ff213669ff82d569ff003669ff000080ff553680ff98f959[ff98f9512]ff55d551ff000079ff3c3680ff003671ff000080ff6c8b79
+Data=ff003669ff000080ff828b79ff55d551ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff3cb151[ff0000802]ff6c6380[ff98f9512]ff218b59ff000080
+Data=ff3c3680ff003671ff98b171ff98f951ff218b59[ff0000802]ff6c6380ff98f951ff55d551ff3c6379ff000071ff000080ff6c6380[ff98f9512]ff55d551ff
+Data=000079ff000080ff3c0080ff98f961ff98f951ff3cb151[ff0000802]ff6c6380[ff98f95110]ff218b59ff828b79[ff98f9514]ff218b59ff828b79[ff98f9514]
+Data=ff218b59ff828b79[ff98f9517]ff218b59ff828b79[ff98f9514]ff218b59ff828b79[ff98f9517]ff006361ff98b171[ff98f95111]ff(003)[ffceffff8]ff
+Data=(003)ff98f951ff82f951ff003669ff828b79[ff98f9512]ff006361ff6c6380[ff98f9517]ff55d551ff553679ff98f959[ff98f95112]ff55d551ff553679ff
+Data=98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f95121]ff82f951ff003669ff98b171[ff98f95133]ff55d551ff553679ff98f959ff82f951ff003669
+Data=ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171[ff98f9513]ff55d551ff5536
+Data=79ff98f959ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171[ff98f9513]ff55d551ff3c0079ff98f961[ff98f95110]
+Data=ff(003)[ffceffff8]ff(003)[ff98f9512]ff82f951ff003669[ff0000802]ff6c6380[ff98f9518]ff6cf951ff553671ff98f959[ff98f95112]ff6cf951ff
+Data=553671ff98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f95121]ff82f951ff003669ff98b171[ff98f95134]ff218b59[ff0000802]ff6c6380[ff98f9512]
+Data=ff218b59[ff0000802]ff6c6380[ff98f9512]ff218b59[ff0000802]ff6c6380[ff98f9515]ff218b59[ff0000802]ff6c6380[ff98f9512]ff218b59[ff0000802]
+Data=ff6c6380ff98f951ff218b59[ff0000804]ff828b79[ff98f95110]ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f951145]
+Data=ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f9519]ff55d551ff553679ff98f959[ff98f95124]ff55d551ff553679ff
+Data=98f959[ff98f951106]ff(003)[ffceffff8]ff(003)[ff98f9519]ff55d551ff553679ff98f959[ff98f95124]ff55d551ff553679ff98f959[ff98f951106]
+Data=ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff3c3679ff003671ff000080
+Data=ff6c6380[ff98f9512]ff006361ff000080ff3c3680ff213671ff98d569ff6cf951ff000071ff553680ff98f959[ff98f9512]ff55d551ff000079ff553680ff
+Data=98f959ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff3cb151[ff0000802]ff6c6380[ff98f9512]
+Data=ff218b59ff000080ff210080ff003679ff98b171ff6cf951ff000071ff000080ff3c6380ff000071ff98b171ff55d551ff553679ff98f959ff82f951ff213669
+Data=ff98d569ff98f951ff55d551ff000079ff000080ff3c0080ff98f961ff98f951ff3cb151[ff0000802]ff6c6380[ff98f95111]ff006361[ff0000802]ff828b
+Data=79[ff98f9512]ff3cb151[ff0000802]ff98b171[ff98f9512]ff3cb151[ff0000802]ff98b171[ff98f9512]ff3cb151[ff0000802]ff98b171[ff98f95135]
+Data=ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff210079ff98d569ff82f951
+Data=ff003669ff98b171ff55d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f9
+Data=59ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff210079ff98d569ff82f951ff0036
+Data=69ff98b171ff55d551ff3c0079ff98f961ff6cf951ff000071ff98b171ff3cb151ff6c6380ff98f951ff3cb151ff210080ff98d569ff55d551ff553679ff98f9
+Data=59ff82f951ff213669ff98d569ff6cf951ff210071ff98d569ff98f951ff3cb151ff553680ff55d559ff210079ff98d569ff82f951ff003669ff98b171[ff98f9519]
+Data=ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff3c00
+Data=79ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961[ff98f95134]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff
+Data=553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff6cf951ff210071ff
+Data=98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff553679
+Data=ff98f959ff98f951ff218b59ff828b79ff3cb151ff6c6380[ff98f9514]ff218b59ff828b79[ff98f9512]ff006361ff98b171ff3cb151ff3c0080ff98f961ff
+Data=6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9517]
+Data=ff3cb151[ff0000804]ff98b171[ff98f9514]ff218b59ff828b79ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff
+Data=82f951ff213669ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f95134]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff5536
+Data=79ff55d559ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff82f9
+Data=51ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff553680ff98f959ff55d551ff553679ff98f959ff55d551ff553679ff55
+Data=d559ff553679ff98f959ff98f951ff218b59ff828b79ff3cb151[ff0000804]ff828b79ff218b59ff828b79[ff98f9512]ff006361ff98b171ff98f951ff55d5
+Data=51ff000079ff000080ff210080ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151[ff0000804]
+Data=ff828b79[ff98f95113]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb1
+Data=51ff6c6380[ff98f9512]ff006361ff98b171[ff98f95134]ff(003)[ffceffff3][ffe4e4e43][ffceffff2]ff(003)ff98f951ff55d551ff553679ff55d559
+Data=ff3c0079ff98f961ff6cf951ff3c0071ff98f961ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff82f951ff213669
+Data=ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff000079ff210080ff98d569ff55d551ff210079ff98d569ff55d551ff553679ff55d559ff2100
+Data=79ff98d569ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff98f951ff006361ff98b171ff55d551ff3c0079ff98f961ff55d551ff000079ff98b1
+Data=71ff55d551ff553679ff98f959ff6cf951ff3c0071ff98f961ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f961ff6cf951ff210071ff98d569ff98f9
+Data=51ff218b59ff6c6380ff55d551ff553679ff98f959ff98f951ff006361ff98b171[ff98f9513]ff3cb151[ff0000804]ff98b171[ff98f9512]ff218b59ff0000
+Data=80ff98b171ff98f951ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]
+Data=ff006361ff98b171[ff98f95134]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff3c6379ff000071ff000080ff6c6380ff98f951ff55
+Data=d551ff3c3679ff003671ff000080ff6c6380ff98f951ff55d551ff553679ff98f959ff82f951ff213669ff82d569ff003669ff000080ff553680ff98f959[ff98f9512]
+Data=ff55d551ff000079ff3c3680ff003671ff000080ff6c8b79ff003669ff000080ff828b79ff55d551ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff3cb1
+Data=51[ff0000802]ff6c6380[ff98f9512]ff218b59ff000080ff3c3680ff003671ff98b171ff98f951ff218b59[ff0000802]ff6c6380ff98f951ff55d551ff3c63
+Data=79ff000071ff000080ff6c6380[ff98f9512]ff55d551ff000079ff000080ff3c0080ff98f961ff98f951ff3cb151[ff0000802]ff6c6380[ff98f95113]ff6c
+Data=f951ff3c0071ff98f961ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff55
+Data=3679ff98f959ff82f951ff213669ff98d569[ff98f95134]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f95117]ff55d551ff55
+Data=3679ff98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f95121]ff82f951ff003669ff98b171[ff98f95133]ff3cb151ff6c6380ff98f951ff6cf951ff
+Data=3c0071ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff6cf951ff210071ff
+Data=98d569ff55d551ff3c0079ff98f961[ff98f95134]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f95117]ff6cf951ff553671ff
+Data=98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f95121]ff82f951ff003669ff98b171[ff98f95134]ff006361[ff0000802]ff98b171[ff98f9512]ff
+Data=3cb151[ff0000802]ff98b171[ff98f9512]ff3cb151[ff0000802]ff98b171[ff98f9512]ff3cb151[ff0000802]ff98b171[ff98f95135]ff(003)[ffceffff8]
+Data=ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f951145]
+Data=ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f9512]ff55d551ff553679ff98f959ff98
+Data=f951ff6cf951ff000071ff000080ff3c6380ff000071ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff98f951ff006361[ff0000802]ff
+Data=553680ff98f959ff98f951ff55d551ff553679ff98f959ff98f951ff3cb151[ff0000802]ff6c6380ff98f951ff55d551ff553679ff98f959[ff98f9513]ff55
+Data=d551ff553679ff98f959[ff98f9514]ff006361ff000080ff3c3680ff213671ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff98f951ff
+Data=55d551ff000079ff000080ff3c0080ff98f961ff6cf951ff000071ff553680ff55d559ff553679ff98f959ff218b59[ff0000802]ff98b171ff98f951ff55d551
+Data=ff553679ff98f959ff82f951ff213669ff98d569[ff98f95110]ff3cb151[ff0000802]ff98b171ff98f951ff6cf951ff3c0071ff98f961ff98f951ff218b59[ff0000802]
+Data=ff828b79[ff98f9512]ff218b59[ff0000802]ff828b79[ff98f9512]ff218b59[ff0000802]ff828b79[ff98f9512]ff218b59[ff0000802]ff828b79[ff98f9512]
+Data=ff218b59[ff0000802]ff828b79[ff98f9512]ff3cb151ff6c6380[ff98f9518]ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f9512]
+Data=ff55d551ff553679ff98f959ff98f951ff3cb151ff6c6380ff98f951ff3cb151ff210080ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569
+Data=ff218b59ff6c6380[ff98f9512]ff006361ff828b79ff98f951ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d5
+Data=51ff553679ff98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f9513]ff55d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679
+Data=ff98f959ff82f951ff213669ff98d569ff6cf951ff210071ff98d569ff98f951ff3cb151ff553680ff55d559ff553679ff98f959ff55d551ff553679ff55d559
+Data=ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9519]ff6cf951ff210071ff98d569ff55d5
+Data=51ff3c0079ff98f961[ff98f9513]ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c63
+Data=80[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff98f951ff55d5
+Data=51ff553679ff98f959[ff98f9517]ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f9512]ff55d551ff553679ff98f959ff98f951ff3c
+Data=b151ff3c0080ff98f961ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9512]ff55d551ff000079ff000080ff
+Data=98b171ff98f951ff55d551ff553679ff98f959ff3cb151ff6c6380[ff98f9514]ff55d551ff553679ff98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f9513]
+Data=ff55d551ff553679ff98f959ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]
+Data=ff55d551ff553679ff98f959ff55d551ff553679ff3cb159ff6c6380[ff98f9512]ff006361ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d5
+Data=69[ff98f9513]ff3cb151[ff0000804]ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9513]ff006361ff98b171[ff98f9512]ff
+Data=218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59ff828b79ff006361ff98b171[ff98f9512]ff
+Data=218b59ff828b79ff006361ff98b171[ff98f9512]ff218b59ff828b79ff98f951ff6cf951ff3c0071ff98f961[ff98f9517]ff(003)[ffceffff8]ff(003)[ff98f9513]
+Data=ff218b59ff828b79[ff98f9512]ff55d551ff553679ff98f959[ff98f9512]ff55d551ff000079ff000080ff210080ff98d569ff55d551ff553679ff98f959ff
+Data=82f951ff213669ff98d569ff55d551ff000079ff000080ff6c6380[ff98f9513]ff55d551ff553679ff98f959ff3cb151[ff0000804]ff828b79ff55d551ff55
+Data=3679ff98f959[ff98f9513]ff55d551ff553679ff98f959[ff98f9513]ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f9
+Data=59ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff55d551ff553679ff98f959ff55d551ff553679ff3cb159ff6c6380[ff98f9512]
+Data=ff006361ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9519]ff3cb151ff6c6380[ff98f9512]ff006361ff98b171[ff98f9513]
+Data=ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff553680ff98f959ff98f951
+Data=ff006361ff98b171ff006361ff553680ff98f959ff98f951ff006361ff98b171ff006361ff553680ff98f959ff98f951ff006361ff98b171[ff98f9512]ff0063
+Data=61ff828b79[ff98f9517]ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f9512]ff55d551ff210079ff98d569ff98f951ff55d551ff55
+Data=3679ff98f959ff6cf951ff3c0071ff98f961ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f961ff3cb151ff6c6380ff98f951ff6cf951ff3c0071ff98
+Data=f961ff98f951ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff98f951ff006361ff98b171ff55d551ff210079ff98d569[ff98f9513]ff55d551ff
+Data=000079[ff0000802]ff553680ff98f959ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f961
+Data=ff6cf951ff210071ff98d569ff98f951ff218b59ff6c6380ff55d551ff553679ff98f959ff55d551ff553679ff55d559ff3c0079ff98f961ff6cf951ff210071
+Data=ff98d569ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f961[ff98f9513]ff3cb151[ff0000804]ff98b171ff3cb151ff6c6380[ff98f9512]ff006361
+Data=ff98b171[ff98f9513]ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b
+Data=71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079ff000080ff6c6380ff98f951ff006361ff558b71ff000079ff000080ff6c6380[ff98f9513]
+Data=ff55d551ff553679ff98f959[ff98f9516]ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f9512]ff55d551ff3c3679ff003671ff3c00
+Data=80ff98f961ff218b59[ff0000802]ff6c6380ff98f951ff55d551ff3c6379ff000071ff000080ff6c6380ff98f951ff82f951ff003669[ff0000802]ff828b79
+Data=ff98f951ff6cf951ff000071ff000080ff3c0080ff98f961ff3cb151[ff0000802]ff6c6380ff98f951ff55d551ff3c3679ff003671ff3c0080ff98f961ff98f9
+Data=51ff55d551ff553679ff98f959[ff98f9513]ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff3c6379ff000071ff000080ff6c6380[ff98f9512]
+Data=ff55d551ff000079ff000080ff3c0080ff82f961ff003669ff000080ff553680ff55d559ff553679ff98f959ff218b59[ff0000802]ff828b79ff98f951ff55d5
+Data=51ff3c6379ff000071ff000080ff6c6380[ff98f95110]ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9513]ff218b59ff828b79[ff98f9514]
+Data=ff218b59ff828b79[ff98f9514]ff218b59ff828b79[ff98f9514]ff218b59ff828b79[ff98f9514]ff218b59ff828b79[ff98f9517]ff006361ff98b171[ff98f9516]
+Data=ff(003)[ffceffff8]ff(003)[ff98f9513]ff218b59ff828b79[ff98f95125]ff55d551ff553679ff98f959[ff98f95112]ff55d551ff553679ff98f959[ff98f95121]
+Data=ff55d551ff553679ff98f959[ff98f95123]ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961[ff98f9513]ff55d551ff553679ff98f959ff82f951ff
+Data=003669ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171ff55d551ff553679ff
+Data=98f959ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff82f951ff003669ff98b171[ff98f9513]ff55d551ff3c0079ff98f961[ff98f9515]ff(003)
+Data=[ffceffff8]ff(003)ff55d551ff000079[ff0000804]ff210080ff98d569[ff98f95122]ff82f951ff003669ff000080ff98b171[ff98f95111]ff55d551ff00
+Data=0079[ff0000803]ff828b79[ff98f95118]ff6cf951ff553671ff98f959ff55d551ff553679ff98f959[ff98f95121]ff3cb151[ff0000802]ff98b171[ff98f9515]
+Data=ff218b59[ff0000802]ff6c6380[ff98f9512]ff218b59[ff0000802]ff6c6380[ff98f9512]ff218b59[ff0000802]ff6c6380[ff98f9512]ff218b59[ff0000802]
+Data=ff6c6380[ff98f9512]ff218b59[ff0000802]ff6c6380ff98f951ff218b59[ff0000804]ff828b79[ff98f9515]ff(003)[ffceffff8]ff(003)[ff98f951145]
+Data=ff(003)[ffe4e4e48]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f9519]ff55d551ff553679ff98f959[ff98f951133]ff(003)[ffceffff8]
+Data=ff(003)[ff98f9519]ff55d551ff553679ff98f959[ff98f951133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff553679ff98f959
+Data=ff82f951ff213669ff98d569ff55d551ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff006361ff000080ff3c3680ff213671ff98d569ff6cf951ff0000
+Data=71ff553680ff98f959[ff98f9513]ff218b59[ff0000803]ff828b79ff98f951ff218b59[ff0000802]ff98b171[ff98f9512]ff006361ff000080ff3c3680ff
+Data=213671ff98d569ff55d551ff553679ff98f959[ff98f9512]ff55d551ff000079ff000080ff3c0080ff98f961ff98f951ff3cb151[ff0000802]ff6c6380[ff98f9514]
+Data=ff55d551ff553679ff98f959ff98f951ff55d551ff210079ff98d569ff6cf951ff000071ff000080ff3c6380ff000071ff98b171ff55d551ff553679ff98f959
+Data=ff55d551ff553679ff98f959ff55d551ff553679ff3cb159[ff0000802]ff6c6380[ff98f95112]ff82f951ff003669ff553680ff98f959[ff98f9514]ff6cf9
+Data=51ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff553679ff98f959ff82f951ff213669ff98d569ff
+Data=55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679ff98f959[ff98f9513]
+Data=ff3cb151ff3c0080ff98f961ff98f951ff82f951ff003669ff558b71ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff55d551
+Data=ff210079ff98d569ff55d551ff553679ff98f959ff98f951ff6cf951ff210071ff98d569ff98f951ff3cb151ff553680ff55d559ff210079ff98d569ff82f951
+Data=ff003669ff98b171[ff98f9513]ff55d551ff553679ff98f959ff98f951ff006361ff210080ff98d569ff3cb151ff6c6380ff98f951ff3cb151ff210080ff98d5
+Data=69ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff55d551ff000079ff210080ff98d569ff82f951ff003669ff98b171[ff98f95111]ff55d551ff
+Data=3c3679ff213671ff98d569[ff98f9514]ff6cf951ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff
+Data=553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff6cf951ff210071ff
+Data=98d569ff55d551ff553679ff98f959[ff98f9518]ff218b59ff213679ff6c6380[ff98f9512]ff006361ff98b171ff55d551ff553679ff98f959ff6cf951ff21
+Data=0071ff98d569ff55d551ff553679ff98f959ff98f951ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9517]ff55d551ff553679ff98f9
+Data=59ff55d551ff556379ff213669ff98d569ff3cb151ff3c0080ff98f961ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff55d551ff553679ff98f9
+Data=59ff55d551ff000079ff6c6380[ff98f9517]ff3cb151[ff0000804]ff98b171[ff98f9512]ff006361ff98b171ff218b59ff6c6380[ff98f9514]ff6cf951ff
+Data=3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff553679ff98f959ff82f951ff213669ff98d569ff55d5
+Data=51ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9516]ff6c
+Data=f951ff000071ff3c0080ff3cb161ff6c6380[ff98f9512]ff006361ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff
+Data=98f959ff98f951ff55d551ff553679ff98f959[ff98f9513]ff3cb151[ff0000804]ff828b79[ff98f9513]ff55d551ff553679ff98f959ff216361ff82d569ff
+Data=213669ff98d569ff98f951ff55d551ff000079ff000080ff210080ff98d569ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff55d551ff000079[ff0000804]
+Data=ff828b79[ff98f95110]ff6cf951ff3c0071ff98f961ff6cf951ff3c0071ff98f961[ff98f9513]ff6cf951ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]
+Data=ff(003)ff98f951ff55d551ff553679ff55d559ff3c0079ff98f961ff6cf951ff3c0071ff98f961ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff
+Data=55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9514]ff006361ff000080ff3c0080ff98f961ff98f951ff55d551
+Data=ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff210079ff98d569ff98f951ff6cf951
+Data=ff210071ff98d569ff98f951ff218b59ff6c6380ff55d551ff553679ff98f959ff98f951ff006361ff98b171[ff98f9513]ff55d551ff553679ff55d559ff6c63
+Data=79ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff6cf951ff3c0071ff98f961ff55d551ff210079ff98d569ff55d551ff210079ff98d569ff55d5
+Data=51ff000079ff553680ff98f959ff98f951ff006361ff98b171[ff98f9513]ff3cb151[ff0000804]ff98b171ff98f951ff218b59ff6c6380[ff98f9512]ff0063
+Data=61ff828b79[ff98f9513]ff6cf951ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff55d559ff3c6379ff0000
+Data=71ff000080ff6c6380ff98f951ff55d551ff3c3679ff003671ff000080ff6c6380ff98f951ff55d551ff553679ff98f959ff82f951ff213669ff82d569ff0036
+Data=69ff000080ff553680ff98f959[ff98f9512]ff55d551ff553679ff98f959[ff98f9514]ff218b59[ff0000802]ff828b79ff98f951ff55d551ff553679ff98f9
+Data=59ff82f951ff213669ff98d569ff55d551ff3c3679ff003671ff3c0080ff98f961ff55d551ff000079ff000080ff3c0080ff98f961ff98f951ff3cb151[ff0000802]
+Data=ff6c6380[ff98f9514]ff55d551ff553679ff216369ff98d569ff82f951ff213669ff98d569ff98f951ff218b59[ff0000802]ff6c6380ff98f951ff55d551ff
+Data=3c3679ff003671ff000080ff6c8b79ff003669ff000080ff828b79ff3cb151[ff0000802]ff6c6380[ff98f95110]ff82f951ff213669ff98d569[ff98f9512]
+Data=ff55d551ff553679ff98f959ff82f951ff3c3669ff6cf961ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98
+Data=f959[ff98f95117]ff55d551ff553679ff98f959[ff98f9513]ff55d551ff3c0079ff98f961ff98f951ff55d551ff210079ff98d569[ff98f95130]ff55d551ff
+Data=000079ff6c6380ff98f951ff82f951ff213669ff98d569[ff98f95128]ff3cb151ff553680ff98f959[ff98f9512]ff82f951ff003669ff98b171ff98f951ff6c
+Data=f951ff000071ff3c0080ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f95117]ff6cf951ff553671ff98
+Data=f959[ff98f9514]ff3cb151[ff0000803]ff98b171[ff98f95131]ff55d551ff210079ff98d569ff98f951ff82f951ff213669ff98d569[ff98f95127]ff82f9
+Data=51ff003669ff828b79[ff98f9514]ff218b59ff553680ff98f959ff98f951ff6cf951ff3c0071ff98f961[ff98f95133]ff(003)[ffceffff8]ff(003)[ff98f951145]
+Data=ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8]ff(003)[ff98f95118]ff55d551ff553679
+Data=ff98f959[ff98f95127]ff55d551ff553679ff98f959[ff98f95156]ff218b59ff828b79[ff98f95115]ff6cf951ff553671ff98f959[ff98f95118]ff(003)[ffceffff8]
+Data=ff(003)[ff98f95118]ff55d551ff553679ff98f959[ff98f95127]ff55d551ff553679ff98f959[ff98f95155]ff55d551ff6c6379[ff98f95117]ff3cb151ff
+Data=828b79[ff98f95118]ff(003)[ffceffff8]ff(003)[ff98f9512]ff82f951ff003669[ff0000802]ff6c6380[ff98f9513]ff006361ff000080ff3c3680ff21
+Data=3671ff98d569ff6cf951ff000071ff553680ff55d559ff3c3679ff003671ff000080ff6c6380[ff98f9512]ff006361ff000080ff3c3680ff213671ff98d569ff
+Data=6cf951ff000071ff553680ff98f959[ff98f9512]ff3cb151[ff0000804]ff82b171ff003669ff6c6380[ff98f9512]ff006361ff6c6380ff55d551ff3c3679ff
+Data=003671ff000080ff6c6380ff98f951ff55d551ff553679ff98f959ff98f951ff3cb151[ff0000802]ff6c6380[ff98f9512]ff006361[ff0000802]ff553680ff
+Data=98f959ff98f951ff006361[ff0000802]ff553680ff98f959ff55d551ff553679ff98f959ff218b59[ff0000802]ff98b171ff98f951ff55d551ff553679ff98
+Data=f959ff82f951ff213669ff98d569[ff98f95111]ff82f951ff003669ff553680ff98f959[ff98f9512]ff216361ff98d569[ff98f9512]ff218b59[ff0000802]
+Data=ff98b171[ff98f9512]ff006361ff000080ff3c3680ff213671ff98d569ff6cf951ff000071ff553680ff98f959ff82f951ff3c3669ff98f961[ff98f95117]ff
+Data=(003)[ffceffff8]ff(003)ff98f951ff82f951ff003669ff828b79[ff98f9512]ff006361ff6c6380ff98f951ff55d551ff3c0079ff98f961ff55d551ff2100
+Data=79ff98d569ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff3c0079ff98f961ff55d551ff210079ff98d5
+Data=69ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9514]ff82f951ff003669ff98b171ff3cb151ff553680ff98f959ff55d551ff210079
+Data=ff98d569ff82f951ff003669ff98b171ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff218b59ff6c6380[ff98f9512]
+Data=ff006361ff828b79ff218b59ff6c6380[ff98f9512]ff006361ff828b79ff55d551ff553679ff55d559ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d5
+Data=51ff553679ff98f959ff82f951ff213669ff98d569[ff98f95111]ff55d551ff3c3679ff213671ff98d569ff98f951ff6cf951ff3c0071ff98f961ff98f951ff
+Data=55d551ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff55d551ff210079ff98d569ff55d551ff553679ff98f959[ff98f9512]
+Data=ff006361ff98b171[ff98f95117]ff(003)[ffceffff3][ffe4e4e43][ffceffff2]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f9512]ff6cf951ff
+Data=3c0071ff98f961ff55d551ff553679ff98f959ff6cf951ff210071ff98d569ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff98f951ff218b59ff
+Data=828b79ff55d551ff553679ff98f959ff6cf951ff210071ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9515]ff55d551ff00
+Data=0079ff210080ff98d569ff98f951ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff3cb151ff6c6380[ff98f9516]ff
+Data=55d551ff000079ff000080ff98b171[ff98f9512]ff55d551ff000079ff000080ff98b171ff55d551ff553679ff3cb159ff6c6380[ff98f9512]ff006361ff98
+Data=b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f9513]ff3cb151[ff0000804]ff98b171[ff98f9512]ff006361ff98b171ff218b59ff6c
+Data=6380ff98f951ff55d551ff553679ff98f959ff98f951ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff55d551ff553679ff98f959ff6cf951ff210071ff
+Data=98d569ff55d551ff553679ff98f959[ff98f9512]ff218b59ff828b79[ff98f95117]ff(003)[ffceffff8]ff(003)ff98f951ff3cb151ff6c6380[ff98f9513]
+Data=ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff55d551ff553679ff98f959ff98f951
+Data=ff218b59ff828b79ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f9515]ff
+Data=82f951ff003669ff553680ff98f959ff98f951ff55d551ff553679ff98f959ff98f951ff218b59ff828b79ff55d551ff553679ff98f959ff3cb151[ff0000804]
+Data=ff828b79ff55d551ff000079ff000080ff6c6380[ff98f9512]ff55d551ff000079ff000080ff6c6380[ff98f9512]ff55d551ff553679ff3cb159ff6c6380[ff98f9512]
+Data=ff006361ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569[ff98f95110]ff6cf951ff3c0071ff98f961ff6cf951ff3c0071ff98f961ff55
+Data=d551ff553679ff98f959ff98f951ff3cb151ff6c6380[ff98f9512]ff006361ff98b171ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff
+Data=553679ff98f959[ff98f9512]ff218b59ff828b79[ff98f95117]ff(003)[ffceffff8]ff(003)ff98f951ff3cb151ff6c6380[ff98f9513]ff82f951ff213669
+Data=ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959ff55d551ff210079ff98d569ff82f951ff003669ff98b171
+Data=ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9513]ff3cb151[ff0000803]ff553680ff98f959ff98f951ff
+Data=006361ff828b79ff006361ff6c6380ff98f951ff55d551ff210079ff98d569ff82f951ff003669ff98b171ff55d551ff210079ff98d569ff55d551ff553679ff
+Data=98f959ff98f951ff006361ff98b171ff3cb151ff6c6380ff98f951ff6cf951ff3c0071ff98f961ff3cb151ff6c6380ff98f951ff6cf951ff3c0071ff98f961ff
+Data=55d551ff553679ff55d559ff3c0079ff98f961ff6cf951ff210071ff98d569ff55d551ff3c0079ff98f961ff6cf951ff3c0071ff98f961[ff98f9513]ff3cb151
+Data=[ff0000804]ff98b171ff98f951ff218b59ff6c6380[ff98f9512]ff006361ff828b79ff6cf951ff3c0071ff98f961ff98f951ff55d551ff3c0079ff98f961ff
+Data=6cf951ff210071ff98d569ff55d551ff553679ff98f959ff82f951ff213669ff98d569ff55d551ff553679ff98f959[ff98f9512]ff218b59ff98b171[ff98f95117]
+Data=ff(003)[ffceffff8]ff(003)ff98f951ff55d551ff553679ff98f959[ff98f9512]ff6cf951ff3c0071ff98f961ff55d551ff553679ff98f959ff82f951ff21
+Data=3669ff82d569ff003669ff000080ff553680ff55d559ff3c3679ff003671ff000080ff6c6380ff98f951ff55d551ff553679ff98f959ff82f951ff213669ff82
+Data=d569ff003669ff000080ff553680ff98f959[ff98f9512]ff3cb151ff6c6380[ff98f9514]ff006361ff553680ff98f959ff82f951ff003669ff828b79ff55d5
+Data=51ff3c3679ff003671ff000080ff6c6380ff98f951ff55d551ff3c3679ff003671ff3c0080ff3cb161[ff0000802]ff6c6380ff98f951ff82f951ff003669[ff0000802]
+Data=ff828b79ff98f951ff82f951ff003669[ff0000802]ff828b79ff98f951ff55d551ff553679ff98f959ff218b59[ff0000802]ff828b79ff98f951ff55d551ff
+Data=3c6379ff000071ff000080ff6c6380[ff98f95110]ff82f951ff213669ff98d569[ff98f9512]ff55d551ff553679ff98f959ff216361ff98d569[ff98f9512]
+Data=ff218b59[ff0000802]ff828b79ff98f951ff55d551ff553679ff98f959ff82f951ff213669ff82d569ff003669ff000080ff553680ff98f959ff82f951ff3c36
+Data=69ff98f961[ff98f95117]ff(003)[ffceffff8]ff(003)ff98f951ff82f951ff003669ff828b79[ff98f9512]ff006361ff6c6380[ff98f9517]ff55d551ff55
+Data=3679ff98f959[ff98f95112]ff55d551ff553679ff98f959[ff98f9513]ff3cb151ff6c6380[ff98f95160]ff3cb151ff553680ff98f959[ff98f9512]ff82f9
+Data=51ff003669ff98b171ff55d551ff6c6379[ff98f95113]ff55d551ff553679ff98f959ff98f951ff3cb151ff828b79[ff98f95118]ff(003)[ffceffff8]ff(003)
+Data=[ff98f9512]ff82f951ff003669[ff0000802]ff6c6380[ff98f9518]ff6cf951ff553671ff98f959[ff98f95112]ff6cf951ff553671ff98f959[ff98f9513]
+Data=ff3cb151[ff0000803]ff210080ff98d569[ff98f95133]ff55d551ff553679ff98f959[ff98f95119]ff82f951ff003669ff828b79[ff98f9514]ff218b59ff
+Data=553680ff98f959ff218b59ff828b79[ff98f95112]ff6cf951ff553671ff98f959ff6cf951ff553671ff98f959[ff98f95118]ff(003)[ffceffff8]ff(003)[ff98f951145]
+Data=ff(003)[ffceffff8]ff(003)[ff98f951145]ff(003)[ffceffff8][ff000000147][ffceffff27]ff(e43)[ffceffff35]ff(e43)[ffceffff35]ff(e43)[ffceffff35]
+Data=ff(e43)[ffceffff28]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff10]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff10]ff(e43)[ffceffff17]ff(e43)[ffceffff17]
+Data=ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)[ffceffff17]ff(e43)ffce(ff3)
+
+[Grid Text]
+Text="Looking at fig 2"
+Text="Vout = 2/3 * 10 = 6.667"
+Text=""
+Text="The transfer function would be"
+Text="(Vout - Va)/ V1"
+Text="(6.667-10)/10 = -0.333"
+Text=""
+Text="Output impedance between "out" and node "a""
+Text="will still be R2//R1 or 0.6667k "
+Px=1088,504
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Fig1"
+Px=96,288
+Height=-18
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="The transfer function command can be run with"
+Text="specific nodes in the circuit, for example the "
+Text="voltage across R3 V(out,a) with respet to the input "
+Text="voltage"
+Px=1088,192
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="This can all be checked using the tranfer"
+Text="function analysis command"
+Px=608,880
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Output Impedance"
+Text="Independant sources must be killed"
+Text="Voltages are shorted and current sources are "
+Text="opened."
+Text="The output impedance will be R1//R2"
+Text="2*1/2+1 = .667k"
+Px=608,800
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Equivalent Dc circuit"
+Text="The output will be the voltage across R5"
+Text="which will be the voltage divider of R4 and R5"
+Text="Vout = 6.667V"
+Text="The input impedance would be 3K seen by"
+Text="the souce"
+Px=608,520
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="The DC transfer function calculates DC gain and"
+Text="input and output impedance of a circuit. For the steady"
+Text="state dc equivalent circuit the inductors will be shorts"
+Text="and the caps will be open."
+Px=600,200
+Height=-13
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="DC Transfer Function"
+Px=216,48
+Height=-18
+FStyle=1
+Color=#000000
+Font=Arial
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="in"
+Px=232,144
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="out"
+Px=560,144
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="a"
+Px=344,144
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="b"
+Px=464,248
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="c"
+Px=568,224
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Fig2"
+Px=96,576
+Height=-18
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Fig3"
+Px=104,872
+Height=-18
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Schematic]
+CurrentSection 0=0
+CurrentSection 1=0
+CurrentSection 2=0
+CurrentSection 3=0
+Splitter.xs=0
+Splitter.ys=0
+TextQuad=4099
+Scale=1.3333333333333333
+GridType=GraphPaper
+GridUser=10
+ShapeGroups="Main","Euro","Polarity","Main1","Main11","Electrolytic","GroundArrow","DeMorgan"
+CalcRMS=False
+CalcAVG=False
+CalcPeak=False
+CalcVoltage=True
+DisplayMeasure=Last
+ShareScales=True
+
+[Tools]
+Pos=Top
+FILESAVEASOLD=No
+BOM=No
+FILEPCB=No
+PROBE=Yes
+SELECT=Yes
+PAN=Yes
+COMP=Yes
+TEXT=Yes
+WIRE=Yes
+WIRED=Yes
+BUS=Yes
+GRAPHIC=Yes
+FLOWCHART=Yes
+LINE=No
+ELLIPSE=No
+RECT=No
+DIAM=No
+ARC=No
+PIE=No
+TRIANGLE=No
+STAR=No
+LEFTBRK=No
+RIGHTBRK=No
+BOTHBRK=No
+META=No
+PARALLELOGRAM=No
+FC_PROCESS=No
+FC_ALT_PROCESS=No
+FC_DECISION=No
+FC_DATA=No
+FC_PREDEFPROCESS=No
+FC_INTERNALSTORAGE=No
+FC_DOCUMENT=No
+FC_MULTIDOCUMENT=No
+FC_TERMINATOR=No
+FC_PREPARATION=No
+FC_MANUALINPUT=No
+FC_MANUALOPERATION=No
+FC_CONNECTOR=No
+FC_OFFPAGECONNECTOR=No
+FC_PUNCHCARD=No
+FC_PUNCHEDTAPE=No
+FC_SUMMING_JUNCTION=No
+FC_OR=No
+FC_COLLATE=No
+FC_SORT=No
+FC_EXTRACT=No
+FC_MERGE=No
+FC_STORED_DATA=No
+FC_DELAY=No
+FC_SAS=No
+FC_MAGNETIC_DISK=No
+FC_DAS=No
+FC_DISPLAY=No
+SPREAD_SHEET=Yes
+POLYCLOS=No
+POLYOPEN=No
+FLAG=Yes
+INFO=Yes
+HELP=Yes
+HELP_SPICE=No
+LINK=Yes
+CHECK=Yes
+REGION_ENABLE=Yes
+TITLE_BLOCK=Yes
+DIGTRC=No
+DIGTRC2=No
+BUILD_COMMAND=Yes
+DIGALL=No
+GRIDTEXT=Yes
+COMPTEXT=Yes
+NODE=Yes
+MEASURED=Yes
+NODEV=Yes
+CURRENT=Yes
+POWER=Yes
+CONDITIN=Yes
+PIN=Yes
+CONNWARN=Yes
+CROSS=No
+GRID=Yes
+BORDER=Yes
+BORDERONE=Yes
+TITLE=Yes
+RUBBER=Yes
+PROPERTY=Yes
+STEP=Yes
+MIRROR=Yes
+ROTATE=Yes
+FLIPY=Yes
+FLIPX=Yes
+CIR_MAKEMACRO=No
+CLEARCUTWIRE=No
+CLIPBOARDCIRPAGE2BMM=No
+FINDCOMP=Yes
+FIND=Yes
+REPEAT=No
+REPLACE=No
+MODEL=Yes
+CIR2CKT=No
+ATTDISP=No
+ENABLE=Yes
+DISABLE=Yes
+ENABLE_WITH=Yes
+TOFRONT=Yes
+TOBACK=Yes
+SELNEXT=No
+PAGEADD=No
+PAGEADDTEXT=No
+ADDSECTION=No
+PAGEDEL=No
+ZOOMIN=Yes
+ZOOMOUT=Yes
+AUTOSCALECIR=Yes
+GOTOFLAG=No
+UPLEVEL=Yes
+COLOR=Yes
+FONT=Yes
+STYLE=Yes
+DM_LAST=No
+DM_RMS=No
+DM_AVG=No
+DM_PEAK=No
+GRID_NONE=No
+GRID_NORMAL=No
+GRID_BOLD_5=No
+GRID_BOLD_6=No
+GRID_BOLD_USER=No
+GRAPH_PAPER=No
+SPLITCIRTEXTH=No
+SPLITCIRTEXTV=No
+SPACE_SPLITTERS_EVENLY=No
+NORMALCIR=No
+RENAMEDEFINE=No
+RENAMECMP=No
+ATTALIGN=No
+RESETNODEPOS=No
+FIT2STANDARD=No
+NODESNAP=No
+MOVETEXT=No
+TEXTINC=No
+TOGGLETEXT=No
+TOGGLEMODE=No
+TOLERANCE=No
+ALIGNAB=No
+ALIGNLEFT=No
+ALIGNCENTER=No
+ALIGNRIGHT=No
+ALIGNTOP=No
+ALIGNMIDDLES=No
+ALIGNBOTTOM=No
+
+[Section]
+Index=0
+Name="dc transfer function"
+Type=Main
+Enable=True
+CurrentPage 0=0
+CurrentPage 1=0
+CurrentPage 2=0
+CurrentPage 3=0
+TabSize 0=425
+TabSize 1=425
+TabSize 2=425
+TabSize 3=425
+
+[Page]
+Index=0
+Section=0
+Print=True
+Enable=True
+Name=Main
+PrinterScale=1
+Scale 0=1
+Scale 1=1
+Scale 2=1
+Scale 3=1.3333333333333333
+Px=1309,801
+WinBackGround Color=#FFFFCE
+Select Color=#FF0000
+Anchor Color=#000000
+Select Box Color=#000080
+Grid Text Color=Height=-12,FStyle=0,Color=#0000FF,Name=Verdana
+Grid Text RTF=False
+Grid Text Angle=0
+Grid Text GridSnap=True
+Grid Text PinIt=False
+Grid Text JustifyH=Left
+Grid Text JustifyV=Bottom
+Grid GradientColor2=None
+Grid OutlineThickness=1
+Grid OutlineColor=None
+Component Color=#0000FF
+Attribute Text=Height=-12,FStyle=0,Color=#008000,Name=Verdana
+Wire Color=#008000
+Bus Color=#008000
+Pin Connection=Height=-10,FStyle=0,Color=#FF0000,Name=Arial
+Pin Marker Color=#008000
+Node Number=Height=-11,FStyle=0,Color=#FF00FF,Name=Arial
+Node Voltage Color=Height=-11,FStyle=0,Color=#000000,Name=Arial
+Dynamic AC Voltage Color=#E4E4E4
+Text Banner Text=Height=-15,FStyle=0,Color=#800000,Name=Arial
+Title Block Background=#C0C0C0
+Current=Height=-11,FStyle=0,Color=#0000FF,Name=Arial
+Power/Condition=Height=-11,FStyle=0,Color=#FF0000,Name=Arial
+Digital Path Color=#FF0000
+Title Block Border=#000000
+Disabled	Color=#C0C0C0
+Search Color=#FFFF00
+Grid Color=#000000
+Graph Paper=#E4E4E4
+Digital 0 Color=#000000
+Digital R Color=#FFFF00
+Digital F Color=#FFFF00
+Digital 1 Color=#FF0000
+Digital X Color=#C0C0C0
+Digital Z Color=#808080
+Block Select Color=#51F998
+
+[Page]
+Index=1
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Text
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Page]
+Index=2
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Models
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Page]
+Index=3
+Section=0
+Type=Info
+Print=False
+Enable=True
+Name=Info
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Text Area]
+Section=0
+Page=1
+
+[Text Area]
+Section=0
+Page=2
+Text=* Schematic File
+Text=*
+Text=* Syntax:
+Text=* .MODEL <model name> [AKO:<reference model name>] <ModelType>
+Text=* +([<parameter name>=<value>][LOT[/#][/GAUSS|/UNIFORM|/WCASE]=[<tol>[%]] |[-<low>%,<high>%]][DEV[/#][/GAUSS|/UNIFORM|/WCASE]=[<tol>[%]]...)
+Text=* ModelType must be one of OPA,D,NPN,NMOS,NJF,PUL,SIN,TRN,CORE,GASFET,VSWITCH,ISWITCH,CAP,IND,RES,PNP,PMOS,PJF,DOUTPUT,DINPUT,UADC,UDAC,UGATE,UTGATE,UEFF,UGFF,UDLY,UPLD,UROM,URAM,UBGT,UIO,LPNP,NIGBT,I,V
+Text=*
+Text=*Examples:
+Text=* .MODEL 2N2222A NPN(BF=150 IS=1E-14)
+Text=* .model M1 NMOS(KP=2.5E-5 VTO=1.345 CGDO=14.67p CGBO=4.566p)
+Text=* .MODEL DK D(IS=1E-18)
+Text=* .model 2N2222A AKO:2N2222 NPN (BF=55 ISE=10F)
+Text=* .Model BJT1 NPN (RE=12 LOT/1/GAUSS=30% DEV/2/UNIFORM=2%)
+Text=*
+Text=* A .cir file is typically found in the data directory
+Text=*
+
+[InfoPage]
+InfoPage=True
+Warnings=True
+System=True
+Defines=True
+Array=True
+Model=True
+Measure=True
+MacroSubckt=True
+NotUsed=True
+ComponentCounts=True
+VariablizePaths=False
+DontShowPaths=False
+SimulationLog=True
+
+[Limits]
+Analysis=DynamicAC
+FirstValueDisplay=Mag
+SecondValueDisplay=PhaseDeg
+PlaceText=True
+
+[Limits]
+Analysis=DynamicDC
+PlaceText=True
+
+[Pane]
+Analysis=Transient
+
+[Pane]
+Analysis=AC
+
+[Pane]
+Analysis=DC
+
+[Pane]
+Analysis=HmDistortion
+
+[Pane]
+Analysis=ImDistortion
+
+[Pane]
+Analysis=Stability
+
+[TF]
+Output=V(out)
+Output=V(out, a)
+Input Source=V1
+Place Text=True
+TextPx=1129,865
+
+[WCTolerance]
+Var Width=100
+Nominal Width=72
+Tol Width=152
+Tol Name=Drift
+Col Width Neq=50
+Col Width Pos=50
+Col Width Rnd=50
+
+[WCFiles]
+UseFile=<Library>Standard.tlib
+AVAILABLE_FILE=<Library>Standard.tlib
+
+[OPMethods]
+Analysis=Transient
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=AC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=HmDistortion
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=ImDistortion
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=Stability
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DynamicAC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DynamicDC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
